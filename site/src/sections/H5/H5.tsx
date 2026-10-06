@@ -21,7 +21,7 @@ function Vis({ c }: { c: Chapter }) {
   if (!c.img) {
     return (
       <figure className="photo vis">
-        <img src={`/art/${c.slug === 'ayam-bawang' ? 'ayam-bawang' : 'mutton-kurma'}.svg`} alt={`Illustration of ${c.name}, drawn for this site`} width={400} height={300} loading="lazy" style={{ width: '100%', height: 'auto' }} />
+        <img src={`${import.meta.env.BASE_URL}art/${c.slug === 'ayam-bawang' ? 'ayam-bawang' : 'mutton-kurma'}.svg`} alt={`Illustration of ${c.name}, drawn for this site`} width={400} height={300} loading="lazy" style={{ width: '100%', height: 'auto' }} />
         <figcaption>Illustration, not a photograph. No licensed photo of this dish yet.</figcaption>
       </figure>
     )

@@ -43,7 +43,7 @@ const PHOTO: Record<string, { id: ImageId; alt: string }> = {
   'ayam-rempah': { id: 'IMG-50', alt: 'Chicken fried in spice paste, covered in crisp fried spices.' },
   'iced-lemon-tea': { id: 'IMG-51', alt: 'A glass of iced lemon tea with a lemon slice and a straw.' },
 }
-const ART: Record<string, string> = { 'ayam-bawang': '/art/ayam-bawang.svg', 'mutton-kurma': '/art/mutton-kurma.svg' }
+const ART: Record<string, string> = { 'ayam-bawang': `${import.meta.env.BASE_URL}art/ayam-bawang.svg`, 'mutton-kurma': `${import.meta.env.BASE_URL}art/mutton-kurma.svg` }
 const TRAY_ICON: Record<string, string> = { nasi: 'tray-nasi', kuah: 'tray-kuah', roti: 'tray-roti', goreng: 'tray-goreng', laut: 'tray-laut', minum: 'tray-minum' }
 const TRAY_COL: Record<string, [string, string]> = { nasi: ['var(--turmeric)', 'var(--ember)'], kuah: ['var(--saffron)', 'var(--ember)'], roti: ['var(--lime)', 'var(--ember)'], goreng: ['var(--chilli)', 'var(--ivory)'], laut: ['var(--leaf)', 'var(--ivory)'], minum: ['var(--cinnamon)', 'var(--ivory)'] }
 const SPICES: Record<string, string[]> = {
@@ -133,7 +133,7 @@ export function Menu() {
       <div className="trays" role="tablist" aria-label="Trays">
         {TRAYS.map((t) => (
           <button key={t.id} type="button" role="tab" className="tray" style={{ ['--tc' as string]: TRAY_COL[t.id][0], ['--tk' as string]: TRAY_COL[t.id][1] }} aria-selected={tray === t.id && !q && !sig}
-            onClick={() => { setTray(t.id); setSig(false); setQ('') }}><img src={`/art/${TRAY_ICON[t.id]}.svg`} alt="" width={24} height={24} />{t.label}</button>
+            onClick={() => { setTray(t.id); setSig(false); setQ('') }}><img src={`${import.meta.env.BASE_URL}art/${TRAY_ICON[t.id]}.svg`} alt="" width={24} height={24} />{t.label}</button>
         ))}
       </div>
 

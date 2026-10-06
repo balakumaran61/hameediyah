@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
+    "build:pages": "tsc --noEmit && vite build --base=/hameediyah/ && cp dist/index.html dist/404.html && touch dist/.nojekyll",
     "preview": "vite preview",
     "lint": "eslint src",
     "gen:assets": "node scripts/gen-assets.mjs",

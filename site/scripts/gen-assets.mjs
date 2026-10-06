@@ -14,7 +14,8 @@ export type ImageId = ${Object.keys(images).map((k) => `'${k}'`).join(' | ')}
 export type VideoId = ${Object.keys(videos).map((k) => `'${k}'`).join(' | ')}
 export interface ImageAsset { id: ImageId; src: string; alt: string; credit: string; license: string; creditRequired: boolean; sourcePage: string; usedIn: string; width: number; height: number }
 export interface VideoAsset { id: VideoId; youtubeId: string; title: string; channel: string; embed: string; poster: string; usedIn: string }
-export const images: Record<ImageId, ImageAsset> = ${JSON.stringify(images, null, 2)}
+const B = import.meta.env.BASE_URL
+export const images: Record<ImageId, ImageAsset> = ${JSON.stringify(images, null, 2).replace(/"src": "\/(img\/[^"]+)"/g, '"src": B + "$1"')}
 export const videos: Record<VideoId, VideoAsset> = ${JSON.stringify(videos, null, 2)}
 `
 writeFileSync(new URL('../src/data/assets.ts', import.meta.url), out)

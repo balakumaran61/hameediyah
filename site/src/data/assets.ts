@@ -3,10 +3,11 @@ export type ImageId = 'IMG-01' | 'IMG-02' | 'IMG-03' | 'IMG-04' | 'IMG-05' | 'IM
 export type VideoId = 'VID-01' | 'VID-02' | 'VID-03' | 'VID-04' | 'VID-05' | 'VID-06' | 'VID-07' | 'VID-08'
 export interface ImageAsset { id: ImageId; src: string; alt: string; credit: string; license: string; creditRequired: boolean; sourcePage: string; usedIn: string; width: number; height: number }
 export interface VideoAsset { id: VideoId; youtubeId: string; title: string; channel: string; embed: string; poster: string; usedIn: string }
+const B = import.meta.env.BASE_URL
 export const images: Record<ImageId, ImageAsset> = {
   "IMG-01": {
     "id": "IMG-01",
-    "src": "/img/IMG-01.webp",
+    "src": B + "img/IMG-01.webp",
     "alt": "Hameediyah shopfront on Lebuh Campbell",
     "credit": "Slleong",
     "license": "CC0",
@@ -18,7 +19,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-02": {
     "id": "IMG-02",
-    "src": "/img/IMG-02.webp",
+    "src": B + "img/IMG-02.webp",
     "alt": "Queue outside Hameediyah",
     "credit": "Slleong",
     "license": "CC0",
@@ -30,7 +31,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-03": {
     "id": "IMG-03",
-    "src": "/img/IMG-03.webp",
+    "src": B + "img/IMG-03.webp",
     "alt": "Queue outside Hameediyah",
     "credit": "Slleong",
     "license": "CC0",
@@ -42,7 +43,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-04": {
     "id": "IMG-04",
-    "src": "/img/IMG-04.webp",
+    "src": B + "img/IMG-04.webp",
     "alt": "Queue at Hameediyah",
     "credit": "Slleong",
     "license": "CC0",
@@ -54,7 +55,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-05": {
     "id": "IMG-05",
-    "src": "/img/IMG-05.webp",
+    "src": B + "img/IMG-05.webp",
     "alt": "Lebuh Campbell streetscape, May 2026",
     "credit": "Weareblahs",
     "license": "CC BY-SA 4.0",
@@ -66,7 +67,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-06": {
     "id": "IMG-06",
-    "src": "/img/IMG-06.webp",
+    "src": B + "img/IMG-06.webp",
     "alt": "Weld Quay, Penang, c.1910",
     "credit": "Kleingrothe, C.J. (Kleingrothe, Carl Josef, 1864-1925) / Medan",
     "license": "Public domain",
@@ -78,7 +79,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-07": {
     "id": "IMG-07",
-    "src": "/img/IMG-07.webp",
+    "src": B + "img/IMG-07.webp",
     "alt": "Weld Quay port, c.1910",
     "credit": "Kleingrothe, C.J. (Kleingrothe, Carl Josef, 1864-1925) / Medan",
     "license": "Public domain",
@@ -90,7 +91,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-08": {
     "id": "IMG-08",
-    "src": "/img/IMG-08.webp",
+    "src": B + "img/IMG-08.webp",
     "alt": "Beach Street, Penang, c.1910",
     "credit": "Kleingrothe, C.J. (Kleingrothe, Carl Josef, 1864-1925) / Medan",
     "license": "Public domain",
@@ -102,7 +103,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-09": {
     "id": "IMG-09",
-    "src": "/img/IMG-09.webp",
+    "src": B + "img/IMG-09.webp",
     "alt": "Kapitan Keling Mosque, Pitt Street, c.1900",
     "credit": "Lambert &amp; Co., G.R. / Singapore",
     "license": "Public domain",
@@ -114,7 +115,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-10": {
     "id": "IMG-10",
-    "src": "/img/IMG-10.webp",
+    "src": B + "img/IMG-10.webp",
     "alt": "Penang harbour postcard",
     "credit": "Scan by NYPL",
     "license": "Public domain",
@@ -126,7 +127,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-11": {
     "id": "IMG-11",
-    "src": "/img/IMG-11.webp",
+    "src": B + "img/IMG-11.webp",
     "alt": "Madras harbour, historic",
     "credit": "Unknown",
     "license": "Public domain",
@@ -138,7 +139,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-12": {
     "id": "IMG-12",
-    "src": "/img/IMG-12.webp",
+    "src": B + "img/IMG-12.webp",
     "alt": "The New Harbour Works at Madras, The Graphic, 1880",
     "credit": "Unknown authorUnknown author",
     "license": "Public domain",
@@ -150,7 +151,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-13": {
     "id": "IMG-13",
-    "src": "/img/IMG-13.webp",
+    "src": B + "img/IMG-13.webp",
     "alt": "Nasi kandar plate",
     "credit": "Wiki Asmah",
     "license": "CC BY-SA 4.0",
@@ -162,7 +163,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-14": {
     "id": "IMG-14",
-    "src": "/img/IMG-14.webp",
+    "src": B + "img/IMG-14.webp",
     "alt": "Nasi kandar plate",
     "credit": "Wiki Asmah",
     "license": "CC BY-SA 4.0",
@@ -174,7 +175,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-15": {
     "id": "IMG-15",
-    "src": "/img/IMG-15.webp",
+    "src": B + "img/IMG-15.webp",
     "alt": "Nasi kandar",
     "credit": "Dannyjafni",
     "license": "CC BY-SA 4.0",
@@ -186,7 +187,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-16": {
     "id": "IMG-16",
-    "src": "/img/IMG-16.webp",
+    "src": B + "img/IMG-16.webp",
     "alt": "Murtabak (stand-in, not Hameediyah's)",
     "credit": "Mojackjutaily",
     "license": "CC BY-SA 4.0",
@@ -198,7 +199,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-17": {
     "id": "IMG-17",
-    "src": "/img/IMG-17.webp",
+    "src": B + "img/IMG-17.webp",
     "alt": "Crab curry (stand-in, not Hameediyah's)",
     "credit": "Neil1422",
     "license": "CC BY-SA 4.0",
@@ -210,7 +211,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-18": {
     "id": "IMG-18",
-    "src": "/img/IMG-18.webp",
+    "src": B + "img/IMG-18.webp",
     "alt": "Whole spices",
     "credit": "Missvain",
     "license": "CC BY 4.0",
@@ -222,7 +223,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-19": {
     "id": "IMG-19",
-    "src": "/img/IMG-19.webp",
+    "src": B + "img/IMG-19.webp",
     "alt": "Cassia bark",
     "credit": "Cholena Nashan",
     "license": "CC BY-SA 4.0",
@@ -234,7 +235,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-20": {
     "id": "IMG-20",
-    "src": "/img/IMG-20.webp",
+    "src": B + "img/IMG-20.webp",
     "alt": "Angsana (Pterocarpus indicus) botanical plate",
     "credit": "Francisco Manuel Blanco (O.S.A.)",
     "license": "Public domain",
@@ -246,7 +247,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-21": {
     "id": "IMG-21",
-    "src": "/img/IMG-21.webp",
+    "src": B + "img/IMG-21.webp",
     "alt": "Teh tarik being pulled",
     "credit": "Cheng from Austin, US",
     "license": "CC BY-SA 2.0",
@@ -258,7 +259,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-22": {
     "id": "IMG-22",
-    "src": "/img/IMG-22.webp",
+    "src": B + "img/IMG-22.webp",
     "alt": "Chicken in a dark onion gravy on a steel platter",
     "credit": "Marajozkee",
     "license": "CC BY-SA 4.0",
@@ -270,7 +271,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-23": {
     "id": "IMG-23",
-    "src": "/img/IMG-23.webp",
+    "src": B + "img/IMG-23.webp",
     "alt": "Pale, creamy lamb korma over white rice",
     "credit": "cyclonebill from Copenhagen, Denmark",
     "license": "CC BY-SA 2.0",
@@ -282,7 +283,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-24": {
     "id": "IMG-24",
-    "src": "/img/IMG-24.webp",
+    "src": B + "img/IMG-24.webp",
     "alt": "Malaysian nasi biryani with meat and pickles",
     "credit": "Miansari66",
     "license": "CC0",
@@ -294,7 +295,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-25": {
     "id": "IMG-25",
-    "src": "/img/IMG-25.webp",
+    "src": B + "img/IMG-25.webp",
     "alt": "Beef rendang on a patterned plate",
     "credit": "Miansari66",
     "license": "CC0",
@@ -306,7 +307,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-26": {
     "id": "IMG-26",
-    "src": "/img/IMG-26.webp",
+    "src": B + "img/IMG-26.webp",
     "alt": "Fish head curry with rice and sides on a banana leaf",
     "credit": "pelican from Tokyo, Japan.",
     "license": "CC BY-SA 2.0",
@@ -318,7 +319,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-27": {
     "id": "IMG-27",
-    "src": "/img/IMG-27.webp",
+    "src": B + "img/IMG-27.webp",
     "alt": "Mee goreng mamak with a lime on a white plate",
     "credit": "Wiki Farazi",
     "license": "CC0",
@@ -330,7 +331,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-28": {
     "id": "IMG-28",
-    "src": "/img/IMG-28.webp",
+    "src": B + "img/IMG-28.webp",
     "alt": "Chicken curry in a steel serving tray",
     "credit": "Midori",
     "license": "CC BY 3.0",
@@ -342,7 +343,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-29": {
     "id": "IMG-29",
-    "src": "/img/IMG-29.webp",
+    "src": B + "img/IMG-29.webp",
     "alt": "Mutton curry in a white bowl",
     "credit": "Dolon Prova",
     "license": "CC BY-SA 4.0",
@@ -354,7 +355,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-30": {
     "id": "IMG-30",
-    "src": "/img/IMG-30.webp",
+    "src": B + "img/IMG-30.webp",
     "alt": "Duck curry in a steel pot",
     "credit": "Varghesepunnamada",
     "license": "CC BY-SA 4.0",
@@ -366,7 +367,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-31": {
     "id": "IMG-31",
-    "src": "/img/IMG-31.webp",
+    "src": B + "img/IMG-31.webp",
     "alt": "Dalca: lentil curry with vegetables and tomato, ladled from a pot",
     "credit": "Mdsheth1986",
     "license": "CC BY-SA 4.0",
@@ -378,7 +379,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-32": {
     "id": "IMG-32",
-    "src": "/img/IMG-32.webp",
+    "src": B + "img/IMG-32.webp",
     "alt": "Spiced fried squid with curry leaves",
     "credit": "Ezehelm",
     "license": "CC BY-SA 4.0",
@@ -390,7 +391,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-33": {
     "id": "IMG-33",
-    "src": "/img/IMG-33.webp",
+    "src": B + "img/IMG-33.webp",
     "alt": "Tandoori chicken with salad",
     "credit": "Miansari66",
     "license": "CC0",
@@ -402,7 +403,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-34": {
     "id": "IMG-34",
-    "src": "/img/IMG-34.webp",
+    "src": B + "img/IMG-34.webp",
     "alt": "Naan fresh from the tandoor",
     "credit": "Ravi Dwivedi",
     "license": "CC BY-SA 4.0",
@@ -414,7 +415,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-35": {
     "id": "IMG-35",
-    "src": "/img/IMG-35.webp",
+    "src": B + "img/IMG-35.webp",
     "alt": "Tomato rice, close up",
     "credit": "Upendra Kanda",
     "license": "CC BY 2.0",
@@ -426,7 +427,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-36": {
     "id": "IMG-36",
-    "src": "/img/IMG-36.webp",
+    "src": B + "img/IMG-36.webp",
     "alt": "Biryani with a fried chicken leg",
     "credit": "Sidheeq",
     "license": "CC BY-SA 3.0",
@@ -438,7 +439,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-37": {
     "id": "IMG-37",
-    "src": "/img/IMG-37.webp",
+    "src": B + "img/IMG-37.webp",
     "alt": "Hard-boiled egg, halved",
     "credit": "Ramesh NG",
     "license": "CC BY-SA 2.0",
@@ -450,7 +451,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-38": {
     "id": "IMG-38",
-    "src": "/img/IMG-38.webp",
+    "src": B + "img/IMG-38.webp",
     "alt": "Boiled okra",
     "credit": "Elmer Centeno Guevarra",
     "license": "CC BY-SA 4.0",
@@ -462,7 +463,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-39": {
     "id": "IMG-39",
-    "src": "/img/IMG-39.webp",
+    "src": B + "img/IMG-39.webp",
     "alt": "Chicken curry Kapitan beside rice (cropped)",
     "credit": "Alpha from Melbourne, Australia",
     "license": "CC BY-SA 2.0",
@@ -474,7 +475,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-40": {
     "id": "IMG-40",
-    "src": "/img/IMG-40.webp",
+    "src": B + "img/IMG-40.webp",
     "alt": "Beef curry",
     "credit": "Dr. Chinchu C.",
     "license": "CC BY 4.0",
@@ -486,7 +487,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-41": {
     "id": "IMG-41",
-    "src": "/img/IMG-41.webp",
+    "src": B + "img/IMG-41.webp",
     "alt": "Daging masak hitam",
     "credit": "Wiki Farazi",
     "license": "Public domain",
@@ -498,7 +499,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-42": {
     "id": "IMG-42",
-    "src": "/img/IMG-42.webp",
+    "src": B + "img/IMG-42.webp",
     "alt": "Dry-fried mutton",
     "credit": "Poojaart09",
     "license": "CC BY-SA 4.0",
@@ -510,7 +511,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-43": {
     "id": "IMG-43",
-    "src": "/img/IMG-43.webp",
+    "src": B + "img/IMG-43.webp",
     "alt": "Lamb shank in curry",
     "credit": "Geoffreyrabbit",
     "license": "CC BY-SA 4.0",
@@ -522,7 +523,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-44": {
     "id": "IMG-44",
-    "src": "/img/IMG-44.webp",
+    "src": B + "img/IMG-44.webp",
     "alt": "Roast turkey drumstick",
     "credit": "Pink Sherbet Photography from USA",
     "license": "CC BY 2.0",
@@ -534,7 +535,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-45": {
     "id": "IMG-45",
-    "src": "/img/IMG-45.webp",
+    "src": B + "img/IMG-45.webp",
     "alt": "Chicken in red tomato gravy",
     "credit": "Ahmad Shazlan",
     "license": "CC0",
@@ -546,7 +547,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-46": {
     "id": "IMG-46",
-    "src": "/img/IMG-46.webp",
+    "src": B + "img/IMG-46.webp",
     "alt": "South Indian fish curry with rice, Chennai",
     "credit": "Jen 0309",
     "license": "CC BY-SA 4.0",
@@ -558,7 +559,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-47": {
     "id": "IMG-47",
-    "src": "/img/IMG-47.webp",
+    "src": B + "img/IMG-47.webp",
     "alt": "Squid masala",
     "credit": "goanfishcurryrice3",
     "license": "CC BY-SA 2.0",
@@ -570,7 +571,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-48": {
     "id": "IMG-48",
-    "src": "/img/IMG-48.webp",
+    "src": B + "img/IMG-48.webp",
     "alt": "Fish roe fry",
     "credit": "Afifa Afrin",
     "license": "CC BY-SA 3.0",
@@ -582,7 +583,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-49": {
     "id": "IMG-49",
-    "src": "/img/IMG-49.webp",
+    "src": B + "img/IMG-49.webp",
     "alt": "Fried chicken with crisp crumbs",
     "credit": "Midori",
     "license": "CC BY-SA 3.0",
@@ -594,7 +595,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-50": {
     "id": "IMG-50",
-    "src": "/img/IMG-50.webp",
+    "src": B + "img/IMG-50.webp",
     "alt": "Ayam goreng berempah",
     "credit": "Nur Aishah Binti Abdullah",
     "license": "CC BY-SA 4.0",
@@ -606,7 +607,7 @@ export const images: Record<ImageId, ImageAsset> = {
   },
   "IMG-51": {
     "id": "IMG-51",
-    "src": "/img/IMG-51.webp",
+    "src": B + "img/IMG-51.webp",
     "alt": "Iced lemon tea",
     "credit": "Andy Li",
     "license": "CC0",
