@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="200" cy="170" rx="180" ry="100" fill="#F4EADB" stroke="#B08D57" stroke-width="5"/>
+<path id="gravy" d="M78 172c6-46 76-66 130-62 66 4 112 30 116 66-8 42-78 60-136 56-66-4-118-24-110-60z" fill="#F0DCB0" stroke="#B08D57" stroke-width="3"/>
+<g id="mutton" fill="#6E3B1F" stroke="#1D1410" stroke-width="4"><path d="M120 176c-8-22 18-36 42-30 22 6 26 28 6 40-18 10-42 8-48-10z"/><path d="M214 160c-6-20 22-32 44-22 18 10 16 30-4 38-18 6-38-2-40-16z"/><path d="M170 206c-6-14 14-24 32-18 14 6 14 20-2 26-14 4-26-2-30-8z"/></g>
+<g id="cardamom" fill="#3E5B2E" stroke="#3E5B2E" stroke-width="3"><ellipse cx="146" cy="130" rx="9" ry="5" transform="rotate(-20 146 130)"/><ellipse cx="278" cy="196" rx="9" ry="5" transform="rotate(25 278 196)"/></g>
+<g id="almonds" fill="#F4EADB" stroke="#B08D57" stroke-width="3"><ellipse cx="240" cy="204" rx="8" ry="5" transform="rotate(30 240 204)"/><ellipse cx="190" cy="136" rx="8" ry="5" transform="rotate(-30 190 136)"/></g>
+<g id="steam" stroke="#B08D57" stroke-width="4" opacity=".6"><path d="M170 66c-14-14 14-22 0-38M214 60c-14-14 14-22 0-38"/></g></svg>

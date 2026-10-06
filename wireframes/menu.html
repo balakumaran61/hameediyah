@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hameediyah · Menu wireframe</title>
+<meta name="description" content="Phase 1 wireframe of the interactive menu, the Kandar Counter.">
+<link rel="stylesheet" href="wireframe.css">
+<script src="assets/manifest.js"></script>
+<script src="kit.js" defer></script>
+</head>
+<body>
+<main class="wf-frame">
+
+<!-- region:MENU start -->
+<style>
+  #menu { padding-top: var(--wf-32); }
+  #menu .mn-top { display: flex; justify-content: space-between; align-items: center; gap: var(--wf-16); margin-bottom: var(--wf-24); }
+  #menu .mn-top a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; }
+  #menu .mn-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: var(--wf-32); align-items: start; }
+  #menu .mn-head { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: var(--wf-24); align-items: end; margin-bottom: var(--wf-24); }
+  #menu .mn-search { display: flex; gap: 8px; align-items: center; margin-top: var(--wf-16); }
+  #menu .mn-search input { flex: 1; min-height: 48px; padding: 0 14px; border: 1.5px solid var(--wf-ink); border-radius: 999px; background: var(--wf-paper); font-size: 16px; }
+
+  /* MN-01 · counter strip of steel trays (sticky) */
+  #menu .mn-counter { position: sticky; top: var(--wf-toolbar-h); z-index: 20; background: var(--wf-paper); padding: var(--wf-12) 0; border-bottom: 3px double var(--wf-ink); }
+  #menu .mn-trays { display: flex; gap: var(--wf-12); overflow-x: auto; scroll-snap-type: x proximity; padding: 4px 2px 8px; }
+  #menu .tray { flex: 0 0 auto; scroll-snap-align: start; min-width: 136px; min-height: 76px; display: grid; align-content: center; justify-items: center; gap: 2px; padding: 10px 14px; border: 2px solid var(--wf-grey-3); border-radius: 10px 10px 4px 4px; background: linear-gradient(to bottom, var(--wf-grey-1), var(--wf-grey-2)); box-shadow: inset 0 -6px 0 var(--wf-line); cursor: pointer; font: inherit; color: inherit; }
+  #menu .tray b { font-size: 15px; }
+  #menu .tray small { font: 600 11px/1.2 var(--wf-mono); color: var(--wf-grey-3); }
+  #menu .tray[aria-selected="true"] { border-color: var(--wf-ink); background: var(--wf-ink); color: var(--wf-paper); box-shadow: inset 0 -6px 0 #6E3B1F; }
+  #menu .tray[aria-selected="true"] small { color: #F0DDB4; }
+
+  /* MN-02 · filters */
+  #menu .mn-filters { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; padding: var(--wf-12) 0; border-bottom: 1px solid var(--wf-line); }
+  #menu .mn-filters .grp { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  #menu .mn-filters .wf-chip { min-height: 36px; min-width: 44px; justify-content: center; }
+  @container wf (max-width: 767px) { #menu .mn-filters .wf-chip { min-height: 44px; } }
+
+  /* Editorial list */
+  #menu .mn-tray-title { display: flex; align-items: baseline; gap: 12px; margin: var(--wf-24) 0 var(--wf-8); }
+  #menu .mn-list { list-style: none; margin: 0; padding: 0; }
+  #menu .dish { scroll-margin-top: calc(var(--wf-toolbar-h) + 170px); }
+  #menu .dish > button { all: unset; box-sizing: border-box; cursor: pointer; width: 100%; display: grid; grid-template-columns: 112px minmax(0, 1fr) auto; gap: var(--wf-16); align-items: center; padding: var(--wf-16) 0; border-bottom: 1px solid var(--wf-line); }
+  #menu .dish > button:hover .dn-en { text-decoration: underline; }
+  #menu .dish > button:focus-visible { outline: 3px solid var(--wf-accent); outline-offset: 2px; }
+  #menu .dish.is-target > button { background: var(--wf-grey-1); }
+  #menu .dish .thumb .wf-ph { min-height: 0; aspect-ratio: 4 / 3; }
+  #menu .dish .thumb .wf-ph::after { font-size: 9px; padding: 2px 4px; }
+  #menu .dish .thumb figcaption { display: none; }
+  #menu .dn-en { font: 800 21px/1.2 var(--wf-sans); }
+  #menu .dn-ms { font: 600 italic 14px/1.3 var(--wf-sans); color: var(--wf-grey-3); }
+  #menu .dn-story { font-size: 14.5px; line-height: 1.5; margin-top: 4px; }
+  #menu .dn-side { display: grid; justify-items: end; gap: 6px; text-align: right; }
+  #menu .dn-price { font: 600 12px/1.2 var(--wf-mono); }
+  #menu .dn-tray { font: 600 10px/1 var(--wf-mono); color: var(--wf-grey-3); text-transform: uppercase; letter-spacing: .06em; }
+  #menu .mn-empty { padding: var(--wf-32) 0; color: var(--wf-grey-3); }
+  #menu .mn-empty[hidden] { display: none; }
+
+  /* MN-04 · plate builder */
+  #menu .mn-builder { position: sticky; top: calc(var(--wf-toolbar-h) + 16px); border: 2px solid var(--wf-ink); background: var(--wf-paper); }
+  #menu .pb-bar { all: unset; box-sizing: border-box; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--wf-line); font-weight: 800; font-size: 18px; }
+  #menu .pb-bar .badge { display: inline-grid; place-items: center; min-width: 28px; height: 28px; padding: 0 6px; border-radius: 14px; background: var(--wf-ink); color: var(--wf-paper); font: 700 13px/1 var(--wf-mono); }
+  #menu .pb-bar .chev { display: none; }
+  #menu .pb-body { padding: 16px; display: grid; gap: var(--wf-16); }
+  #menu .pb-pole { position: relative; height: 54px; }
+  #menu .pb-pole .beam { position: absolute; left: 8%; right: 8%; top: 18px; height: 4px; background: var(--wf-ink); border-radius: 2px; transform-origin: 50% 50%; transform: rotate(var(--tilt, 0deg)); transition: transform 300ms ease-out; }
+  #menu .pb-pole .beam::before, #menu .pb-pole .beam::after { content: ""; position: absolute; top: 4px; width: 22px; height: 16px; border: 2px solid var(--wf-ink); border-top: 0; border-radius: 0 0 10px 10px; background: var(--wf-paper); }
+  #menu .pb-pole .beam::before { left: -4px; } #menu .pb-pole .beam::after { right: -4px; background: var(--wf-grey-2); }
+  #menu .pb-pole .fulcrum { position: absolute; left: 50%; top: 22px; translate: -50% 0; border: 10px solid transparent; border-top: 0; border-bottom: 16px solid var(--wf-ink); }
+  #menu .pb-plate { position: relative; aspect-ratio: 1 / 1; max-width: 220px; margin: 0 auto; width: 100%; border-radius: 50%; border: 2px solid var(--wf-ink); display: grid; place-items: center; text-align: center; padding: 18%; background: radial-gradient(circle, var(--wf-paper) 62%, var(--wf-grey-1) 63%); font: 600 11px/1.35 var(--wf-mono); color: var(--wf-grey-3); }
+  #menu .pb-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+  #menu .pb-list li { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px dashed var(--wf-line); font-size: 14px; }
+  #menu .pb-list li .slot { font: 600 10px/1 var(--wf-mono); color: var(--wf-grey-3); text-transform: uppercase; margin-right: 6px; }
+  #menu .pb-list button { min-width: 44px; min-height: 36px; border: 1px solid var(--wf-grey-3); border-radius: 18px; background: var(--wf-paper); cursor: pointer; font-size: 12px; }
+  #menu .pb-kuah { display: flex; flex-wrap: wrap; gap: 6px; }
+  #menu .pb-msg { min-height: 1.4em; font-weight: 700; font-size: 14px; }
+  #menu .pb-show { width: 100%; }
+  #menu .pb-show:disabled { opacity: .45; cursor: not-allowed; }
+
+  /* Layer for the drawer and the counter view (fixed, aligned to the frame) */
+  #menu .mn-layer { position: fixed; top: var(--wf-toolbar-h); bottom: 0; left: 50%; translate: -50% 0; width: 100%; max-width: var(--wf-frame-w); z-index: 80; }
+  #menu .mn-layer[hidden] { display: none; }
+  #menu .mn-backdrop { position: absolute; inset: 0; background: rgb(0 0 0 / .45); }
+  #menu .drawer { position: absolute; top: 0; right: 0; bottom: 0; width: min(500px, 92%); background: var(--wf-paper); overflow: auto; padding: var(--wf-24); display: grid; gap: var(--wf-16); align-content: start; box-shadow: -10px 0 30px rgb(0 0 0 / .25); }
+  #menu .drawer .dr-close { justify-self: end; }
+  #menu .drawer h2 { font: 800 34px/1.1 var(--wf-sans); letter-spacing: -0.02em; }
+  #menu .drawer dl { display: grid; grid-template-columns: 110px 1fr; gap: 8px 12px; margin: 0; font-size: 15px; }
+  #menu .drawer dt { font: 600 11px/1.6 var(--wf-mono); text-transform: uppercase; color: var(--wf-grey-3); }
+  #menu .drawer dd { margin: 0; }
+  #menu .drawer .dr-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+  #menu .drawer .dr-src { font-size: 12px; color: var(--wf-grey-3); }
+  /* MN-05 · show at counter (high contrast, full screen) */
+  #menu .counter-view { position: absolute; inset: 0; background: #1D1410; color: #fff; overflow: auto; padding: var(--wf-32); display: grid; align-content: start; gap: var(--wf-24); }
+  #menu .counter-view .cv-close { justify-self: end; background: #fff; color: #1D1410; border-color: #fff; }
+  #menu .counter-view h2 { font: 800 clamp(40px, 6cqi, 72px)/1 var(--wf-sans); }
+  #menu .counter-view .cv-ms { font: 700 24px/1.2 var(--wf-sans); color: #F5E6C4; }
+  #menu .counter-view ol { margin: 0; padding-left: 1.2em; font: 800 clamp(28px, 4cqi, 48px)/1.25 var(--wf-sans); }
+  #menu .counter-view ol small { display: block; font: 600 18px/1.3 var(--wf-sans); color: #F0DDB4; }
+  #menu .counter-view .cv-foot { font-size: 18px; color: #F5E6C4; border-top: 1px solid #8A5A2B; padding-top: var(--wf-16); }
+
+  #menu .mn-notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 var(--wf-24); margin-top: var(--wf-48); }
+  #menu .mn-notes .wf-anno { max-width: none; }
+
+  @container wf (max-width: 767px) {
+    #menu { padding-top: var(--wf-24); padding-bottom: 96px; }
+    #menu .mn-layout { grid-template-columns: minmax(0, 1fr); }
+    #menu .mn-head { grid-template-columns: minmax(0, 1fr); }
+    #menu .mn-hero { display: none; }
+    #menu .tray { min-width: 118px; min-height: 64px; }
+    #menu .dish > button { grid-template-columns: 76px minmax(0, 1fr); }
+    #menu .dn-side { grid-column: 2; justify-items: start; text-align: left; grid-auto-flow: column; justify-content: start; align-items: center; gap: 10px; }
+    #menu .dn-en { font-size: 18px; }
+    /* plate builder becomes a bottom sheet with a count badge */
+    #menu .mn-builder { position: fixed; top: auto; bottom: 0; left: 50%; translate: -50% 0; width: 100%; max-width: var(--wf-frame-w); z-index: 60; border-width: 2px 0 0; max-height: 78vh; overflow: auto; box-shadow: 0 -8px 24px rgb(0 0 0 / .18); }
+    #menu .pb-bar { position: sticky; top: 0; background: var(--wf-paper); min-height: 60px; cursor: pointer; }
+    #menu .pb-bar .chev { display: inline; font-size: 14px; }
+    #menu .mn-builder:not(.is-open) .pb-body { display: none; }
+    #menu .drawer { top: auto; left: 0; right: 0; width: auto; max-height: 88%; border-radius: 16px 16px 0 0; box-shadow: 0 -10px 30px rgb(0 0 0 / .25); }
+    #menu .counter-view { padding: var(--wf-16); }
+    #menu .mn-notes { grid-template-columns: 1fr; }
+  }
+</style>
+
+<section class="wf-section" id="menu" data-section="MENU" data-title="The Kandar Counter">
+  <div class="wf-container">
+    <div class="mn-top">
+      <a href="index.html#h1">← Hameediyah · the story</a>
+      <a href="index.html#h9">Visit 164A</a>
+    </div>
+
+    <div class="mn-head">
+      <div>
+        <p class="wf-eyebrow">The Kandar Counter</p>
+        <h1 class="wf-display-xl">Walk the counter. Point. Pick. Pour.</h1>
+        <p class="wf-h3" style="margin-top:var(--wf-12)">Nasi kandar is ordered at the counter: rice first, then your pieces, then the <i>kuah</i> <span class="wf-gloss">(curry gravy)</span>.</p>
+        <p class="wf-body" style="margin-top:var(--wf-12)">Slide along the steel trays, open a dish to read its story, and build a plate. When you're ready, show it to the staff. The counter is where it happens.</p>
+        <p class="wf-small" style="margin-top:var(--wf-12)"><mark class="wf-verify">Compiled from press and reviews, 2014–2024. Check the current menu with the restaurant.</mark></p>
+        <form class="mn-search" role="search" onsubmit="return false">
+          <label class="wf-sr-only" for="mn-q">Search dishes</label>
+          <input id="mn-q" type="search" placeholder="Search dishes in English or Malay (kurma, ketam…)" autocomplete="off">
+        </form>
+      </div>
+      <figure class="wf-img mn-hero" data-asset="IMG-15" data-ratio="4/3" data-caption-text="Nasi kandar on a banana leaf (representative photo, not Hameediyah's)"></figure>
+    </div>
+
+    <div class="mn-layout">
+      <div class="mn-main">
+        <div class="mn-counter">
+          <div class="mn-trays" role="tablist" aria-label="Counter trays" id="mn-trays"></div>
+          <div class="mn-filters" role="group" aria-label="Filters">
+            <div class="grp" role="group" aria-label="Maximum heat"><span class="wf-label">Heat up to</span><span id="mn-heat"></span></div>
+            <div class="grp" role="group" aria-label="Protein"><span class="wf-label">Protein</span><span id="mn-protein"></span></div>
+            <div class="grp"><button class="wf-chip" type="button" aria-pressed="false" id="mn-sig">★ Signature</button><button class="wf-btn wf-btn--ghost" type="button" id="mn-clear">Clear filters</button></div>
+          </div>
+        </div>
+
+        <div class="mn-tray-title"><h2 class="wf-h3" id="mn-title">Nasi &amp; Rice</h2><span class="wf-small" id="mn-count"></span></div>
+        <ul class="mn-list" id="mn-list" aria-labelledby="mn-title"></ul>
+        <p class="mn-empty" id="mn-empty" hidden>No dishes match. Loosen a filter.</p>
+      </div>
+
+      <aside class="mn-builder" id="builder" aria-label="Your plate">
+        <button class="pb-bar" type="button" id="pb-bar" aria-expanded="false" aria-controls="pb-body"><span>Your plate</span><span><span class="badge" id="pb-badge" aria-label="items on your plate">0</span> <span class="chev" aria-hidden="true">▲</span></span></button>
+        <div class="pb-body" id="pb-body">
+          <div class="pb-pole" aria-hidden="true"><div class="beam" id="pb-beam"></div><div class="fulcrum"></div></div>
+          <div class="pb-plate" id="pb-plate">ILLUSTRATED PLATE: items assemble here</div>
+          <p class="pb-msg" id="pb-msg" aria-live="polite">Your plate is empty. Start with rice.</p>
+          <ul class="pb-list" id="pb-list"></ul>
+          <div><p class="wf-label" style="margin-bottom:6px">Pour the kuah</p><div class="pb-kuah" id="pb-kuah"></div></div>
+          <button class="wf-btn wf-btn--primary pb-show" type="button" id="pb-show" disabled>Show at counter</button>
+          <p class="wf-small">Prices: ask at the counter.</p>
+        </div>
+      </aside>
+    </div>
+
+    <div class="mn-notes">
+      <aside class="wf-anno" data-ids="MN-01 BR-10">Trays, not tiles: the categories are steel trays on a counter you slide along (sticky at the top). Selecting a tray "lifts" it and its dishes appear below as an editorial list, one dish per row with a story line, the way you'd walk the real counter and point. No grid of equal cards, no prices to compare, no basket.</aside>
+      <aside class="wf-anno" data-ids="MN-02 MN-06">Filters combine (AND): heat "up to n" chilli marks, protein, Signature. Search matches English, Malay and slug ("ketam", "kambing") across all trays; while searching, results from every tray show with a tray label. Empty state: "No dishes match. Loosen a filter." / "Nothing on the counter by that name. Try the Malay, or clear a filter."</aside>
+      <aside class="wf-anno" data-ids="MN-03 MN-07 A11Y">Dish detail opens as a right-hand drawer (desktop) or bottom sheet (mobile): photo, story, key spices, heat, "best with…", Add to plate, copy link. The URL becomes <code>menu.html#slug</code> (deep-linkable; production route <code>/menu/:dish</code>). Focus moves to Close, Tab is trapped, Esc / ✕ / backdrop click closes and focus returns to the row.</aside>
+      <aside class="wf-anno" data-ids="MN-04 GR-02">Build your plate: one rice, up to 6 pieces, any kuah. The illustrated plate assembles as you add (HAM-13 art). The brass pole above it tilts as the plate gets heavier, and at 5+ pieces it tips with "Heavy plate! The pole is tipping." Reduced motion: the tilt snaps, no swing. Mobile: a bottom sheet with a count badge; tap the bar to open.</aside>
+      <aside class="wf-anno" data-ids="MN-05 A11Y">Show at counter: full screen, black on white reversed for contrast, very large type, in English and Malay ("Saya nak:"), so staff can read it at arm's length across a busy counter. No checkout, no payment. ✕ or Esc returns to the menu.</aside>
+      <aside class="wf-anno" data-ids="MN-08">Prices appear only when verified (docs/MENU-DATA.md); today every dish says "Ask at counter". Heat marks and "best with" are editorial, to be confirmed with the kitchen. Dish photos are stand-ins; dishes without a cleared photo use labelled placeholders.</aside>
+    </div>
+  </div>
+
+  <!-- Drawer / sheet (MN-03) -->
+  <div class="mn-layer" id="mn-drawer-layer" hidden>
+    <div class="mn-backdrop" data-close></div>
+    <div class="drawer" role="dialog" aria-modal="true" aria-labelledby="dr-title" id="mn-drawer">
+      <button class="wf-btn dr-close" type="button" data-close aria-label="Close">✕ Close</button>
+      <div id="dr-media"></div>
+      <div><p class="dn-tray" id="dr-tray"></p><h2 id="dr-title"></h2><p class="dn-ms" id="dr-ms"></p></div>
+      <p id="dr-story"></p>
+      <dl>
+        <dt>Key spices</dt><dd id="dr-spices"></dd>
+        <dt>Heat</dt><dd id="dr-heat"></dd>
+        <dt>Best with…</dt><dd id="dr-pairs"></dd>
+        <dt>Price</dt><dd id="dr-price"></dd>
+      </dl>
+      <div class="dr-actions">
+        <button class="wf-btn wf-btn--primary" type="button" id="dr-add">Add to plate</button>
+        <button class="wf-btn" type="button" id="dr-copy">Copy link to this dish</button>
+      </div>
+      <p class="dr-src" id="dr-src"></p>
+    </div>
+  </div>
+
+  <!-- Show at counter (MN-05) -->
+  <div class="mn-layer" id="counter-view" hidden>
+    <div class="counter-view" role="dialog" aria-modal="true" aria-labelledby="cv-title">
+      <button class="wf-btn cv-close" type="button" data-close>✕ Back to the menu</button>
+      <div><h2 id="cv-title">I'd like:</h2><p class="cv-ms">Saya nak:</p></div>
+      <ol id="cv-list"></ol>
+      <p class="cv-foot">Show this to the staff. Prices: ask at the counter.</p>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    /* Generated from docs/MENU-DATA.md by HAM-10. Regenerate rather than hand-edit. */
+var DISHES = [{"slug": "murtabak", "en": "Murtabak", "ms": "Murtabak", "tray": "roti", "protein": ["chicken", "mutton"], "heat": 2, "sig": true, "story": "Folded on the hot griddle at the front door; the shop makes `[VERIFY: about 15,000]` a year.", "pairs": ["kari-daging", "dalca"], "price": "Ask at counter", "source": "S1, S3, S6, S8, S9"}, {"slug": "ayam-bawang", "en": "Chicken with onion", "ms": "Ayam Bawang", "tray": "kuah", "protein": ["chicken"], "heat": 2, "sig": true, "story": "Fried chicken simmered in a slow, sweet onion gravy: an easy first plate. `[VERIFY: served at 164A; described at the Ampang branch]`", "pairs": ["nasi-kandar", "kuah-campur"], "price": "Ask at counter", "source": "S8, B"}, {"slug": "mutton-kurma", "en": "Mutton kurma", "ms": "Kurma Kambing", "tray": "kuah", "protein": ["mutton"], "heat": 1, "sig": true, "story": "Mild, thick and pale; FMT lists it among the house signatures.", "pairs": ["nasi-briyani", "murtabak"], "price": "Ask at counter", "source": "S3, S6"}, {"slug": "kari-ketam", "en": "Crab curry", "ms": "Kari Ketam", "tray": "laut", "protein": ["seafood"], "heat": 4, "sig": true, "story": "Whole crab in a deep red kuah. `[VERIFY: on the current Campbell Street menu]`", "pairs": ["nasi-kandar", "telur-rebus"], "price": "Ask at counter", "source": "B"}, {"slug": "nasi-kandar", "en": "Nasi kandar (steamed rice)", "ms": "Nasi Kandar", "tray": "nasi", "protein": ["vegetarian"], "heat": 1, "sig": false, "story": "The plate it all starts on: rice first, then your pieces, then the kuah.", "pairs": ["kuah-campur", "ayam-kapitan"], "price": "Ask at counter", "source": "S1, S4, S5"}, {"slug": "kuah-campur", "en": "Mixed gravies over rice", "ms": "Kuah Campur (\"banjir\")", "tray": "nasi", "protein": ["vegetarian"], "heat": 3, "sig": false, "story": "Ask for a ladle of several curries over your rice. Regulars call a full flood *banjir*.", "pairs": ["nasi-kandar"], "price": "Ask at counter", "source": "Nasi kandar ordering custom (SPEC §6 H6). `[VERIFY: wording used at the counter]`"}, {"slug": "nasi-briyani", "en": "Biryani rice", "ms": "Nasi Briyani", "tray": "nasi", "protein": ["vegetarian"], "heat": 2, "sig": false, "story": "Bright orange grains, cooked the old-fashioned way.", "pairs": ["mutton-kurma", "ayam-goreng"], "price": "Ask at counter", "source": "S1, S3, S6"}, {"slug": "briyani-ayam-goreng", "en": "Biryani with fried chicken", "ms": "Nasi Briyani Ayam Goreng", "tray": "nasi", "protein": ["chicken"], "heat": 2, "sig": false, "story": "Fragrant biryani topped with crisp spiced chicken.", "pairs": ["kuah-campur"], "price": "Ask at counter", "source": "S9"}, {"slug": "nasi-tomato", "en": "Tomato rice", "ms": "Nasi Tomato", "tray": "nasi", "protein": ["vegetarian"], "heat": 1, "sig": false, "story": "Tomato-tinted rice, a softer base than biryani.", "pairs": ["kari-itik"], "price": "Ask at counter", "source": "S7"}, {"slug": "telur-rebus", "en": "Hard-boiled egg", "ms": "Telur Rebus", "tray": "nasi", "protein": ["egg"], "heat": 1, "sig": false, "story": "A classic side; part of the old 20-to-30-sen plate.", "pairs": ["kari-ketam", "kari-ikan"], "price": "Ask at counter", "source": "S5"}, {"slug": "bendi", "en": "Boiled okra", "ms": "Bendi Rebus", "tray": "nasi", "protein": ["vegetarian"], "heat": 1, "sig": false, "story": "Ladies' fingers; part of the old 20-to-30-sen plate.", "pairs": ["kari-ikan"], "price": "Ask at counter", "source": "S5"}, {"slug": "ayam-kapitan", "en": "Kapitan chicken", "ms": "Kari Ayam Kapitan", "tray": "kuah", "protein": ["chicken"], "heat": 3, "sig": false, "story": "A thick, rich chicken curry; its spice mix is a family recipe.", "pairs": ["nasi-kandar", "nasi-briyani"], "price": "Ask at counter", "source": "S1, S3, S5, S6, S7"}, {"slug": "kari-ayam", "en": "Chicken curry", "ms": "Kari Ayam", "tray": "kuah", "protein": ["chicken"], "heat": 3, "sig": false, "story": "The everyday curry whose spice blend, the family says, hasn't changed in 100 years.", "pairs": ["nasi-kandar"], "price": "Ask at counter", "source": "S3"}, {"slug": "kari-daging", "en": "Beef curry", "ms": "Kari Daging", "tray": "kuah", "protein": ["beef"], "heat": 3, "sig": false, "story": "The family says they made more of it during the 1940s occupation.", "pairs": ["murtabak", "nasi-kandar"], "price": "Ask at counter", "source": "S1, S3, S7"}, {"slug": "rendang-daging", "en": "Beef rendang", "ms": "Rendang Daging", "tray": "kuah", "protein": ["beef"], "heat": 3, "sig": false, "story": "Slow-cooked until the gravy clings to the meat.", "pairs": ["nasi-kandar"], "price": "Ask at counter", "source": "S1, S3, S6"}, {"slug": "daging-masak-hitam", "en": "Beef in dark soy gravy", "ms": "Daging Masak Hitam", "tray": "kuah", "protein": ["beef"], "heat": 2, "sig": false, "story": "On the plate the family remembers selling for 20 to 30 sen. `[VERIFY: still on the menu]`", "pairs": ["nasi-kandar", "bendi"], "price": "Ask at counter", "source": "S5"}, {"slug": "mutton-mysore", "en": "Mutton Mysore", "ms": "Kambing Mysore", "tray": "kuah", "protein": ["mutton"], "heat": 4, "sig": false, "story": "A dry, peppery mutton fry that FMT lists among the signatures.", "pairs": ["nasi-kandar"], "price": "Ask at counter", "source": "S3"}, {"slug": "kari-kambing", "en": "Mutton curry", "ms": "Kari Kambing", "tray": "kuah", "protein": ["mutton"], "heat": 3, "sig": false, "story": "Thick and deeply spiced.", "pairs": ["nasi-briyani"], "price": "Ask at counter", "source": "S6, S7"}, {"slug": "lamb-shank", "en": "Lamb shank", "ms": "Kambing Shank", "tray": "kuah", "protein": ["mutton"], "heat": 2, "sig": false, "story": "A whole shank in the house masala.", "pairs": ["nasi-briyani"], "price": "Ask at counter", "source": "S8, S9"}, {"slug": "kari-ayam-belanda", "en": "Turkey curry", "ms": "Kari Ayam Belanda", "tray": "kuah", "protein": ["chicken"], "heat": 3, "sig": false, "story": "Giant turkey legs in curry, a Hameediyah oddity worth the photo.", "pairs": ["nasi-kandar"], "price": "Ask at counter", "source": "S5, S6"}, {"slug": "ayam-masak-ros", "en": "Chicken in rose gravy", "ms": "Ayam Masak Ros", "tray": "kuah", "protein": ["chicken"], "heat": 1, "sig": false, "story": "Mild, sweet-tomato gravy for those who want less heat.", "pairs": ["nasi-tomato"], "price": "Ask at counter", "source": "S5"}, {"slug": "kari-itik", "en": "Duck curry", "ms": "Kari Itik", "tray": "kuah", "protein": ["chicken"], "heat": 3, "sig": false, "story": "Duck drumsticks in the house spice blend.", "pairs": ["nasi-tomato"], "price": "Ask at counter", "source": "S7, S8"}, {"slug": "dalca", "en": "Dhal curry", "ms": "Dalca", "tray": "kuah", "protein": ["vegetarian"], "heat": 2, "sig": false, "story": "Lentils and vegetables; the family's dhal recipe is a century old.", "pairs": ["murtabak", "nasi-kandar"], "price": "Ask at counter", "source": "S3, S7"}, {"slug": "kari-kepala-ikan", "en": "Fish-head curry", "ms": "Kari Kepala Ikan", "tray": "laut", "protein": ["seafood"], "heat": 4, "sig": false, "story": "A whole fish head in a sour, spiced kuah. Big enough to share.", "pairs": ["nasi-kandar"], "price": "Ask at counter", "source": "S7, S8, SPEC §14.5"}, {"slug": "kari-ikan", "en": "Fish curry", "ms": "Kari Ikan", "tray": "laut", "protein": ["seafood"], "heat": 3, "sig": false, "story": "On the 20-to-30-sen plate the family remembers from the old days.", "pairs": ["nasi-kandar", "bendi"], "price": "Ask at counter", "source": "S5"}, {"slug": "kari-sotong", "en": "Squid curry", "ms": "Kari Sotong", "tray": "laut", "protein": ["seafood"], "heat": 3, "sig": false, "story": "Tender squid in a red curry.", "pairs": ["nasi-kandar"], "price": "Ask at counter", "source": "S7"}, {"slug": "telur-ikan", "en": "Fish roe", "ms": "Telur Ikan", "tray": "laut", "protein": ["seafood"], "heat": 2, "sig": false, "story": "Fried roe, one of the lesser-known house signatures.", "pairs": ["nasi-kandar"], "price": "Ask at counter", "source": "S3"}, {"slug": "sotong-goreng", "en": "Fried squid", "ms": "Sotong Goreng", "tray": "goreng", "protein": ["seafood"], "heat": 2, "sig": false, "story": "A best-seller: crisp, spiced squid.", "pairs": ["nasi-kandar", "kuah-campur"], "price": "Ask at counter", "source": "S8, S9"}, {"slug": "ayam-goreng", "en": "Fried chicken", "ms": "Ayam Goreng", "tray": "goreng", "protein": ["chicken"], "heat": 2, "sig": false, "story": "Marinated in spices, fried crisp, still juicy inside.", "pairs": ["nasi-briyani"], "price": "Ask at counter", "source": "S6, S9"}, {"slug": "ayam-rempah", "en": "Spice-rubbed chicken", "ms": "Ayam Rempah", "tray": "goreng", "protein": ["chicken"], "heat": 3, "sig": false, "story": "Chicken fried in a thick rempah (spice paste).", "pairs": ["nasi-kandar"], "price": "Ask at counter", "source": "S7"}, {"slug": "mee-goreng", "en": "Fried noodles", "ms": "Mee Goreng", "tray": "goreng", "protein": ["seafood"], "heat": 3, "sig": false, "story": "Wok-fried noodles; a long-time favourite.", "pairs": ["iced-lemon-tea"], "price": "Ask at counter", "source": "S1, S8"}, {"slug": "tandoori-ayam", "en": "Tandoori chicken", "ms": "Ayam Tandoori", "tray": "goreng", "protein": ["chicken"], "heat": 2, "sig": false, "story": "From Hameediyah Tandoori House, two doors down.", "pairs": ["roti-naan"], "price": "Ask at counter", "source": "S1, S8"}, {"slug": "roti-naan", "en": "Naan", "ms": "Roti Naan", "tray": "roti", "protein": ["vegetarian"], "heat": 1, "sig": false, "story": "Garlic, butter or cheese naan from the tandoor. `[VERIFY: naan list seen at the Ampang branch]`", "pairs": ["tandoori-ayam", "mutton-kurma"], "price": "Ask at counter", "source": "S8"}, {"slug": "teh-tarik", "en": "Pulled milk tea", "ms": "Teh Tarik", "tray": "minum", "protein": ["vegetarian"], "heat": 1, "sig": false, "story": "Sweet milk tea, poured from a height until it froths. `[VERIFY: on the Hameediyah menu]`", "pairs": ["murtabak"], "price": "Ask at counter", "source": "SPEC §7 MN-01 (example)"}, {"slug": "iced-lemon-tea", "en": "Iced lemon tea", "ms": "Teh O Ais Limau", "tray": "minum", "protein": ["vegetarian"], "heat": 1, "sig": false, "story": "Strong, not too sweet: the cool-down after the kuah.", "pairs": ["mee-goreng", "nasi-briyani"], "price": "Ask at counter", "source": "S9"}];
+    var TRAYS = [
+      ['nasi', 'Nasi & Rice', 'nasi'], ['kuah', 'Curries (Kuah)', 'kuah'], ['roti', 'Murtabak & Roti', 'roti'],
+      ['goreng', 'Fried / Goreng', 'goreng'], ['laut', 'Seafood', 'laut'], ['minum', 'Drinks', 'minum']
+    ];
+    var IMG = { 'murtabak': 'IMG-16', 'kari-ketam': 'IMG-17', 'nasi-kandar': 'IMG-13', 'kuah-campur': 'IMG-14', 'teh-tarik': 'IMG-21' };
+    var SPICES = { 'murtabak': 'cumin · fennel · cardamom', 'ayam-bawang': 'fennel · cinnamon · clove', 'mutton-kurma': 'cardamom · cinnamon · star anise', 'kari-ketam': 'dried chilli · coriander · fennel' };
+    var RICE = ['nasi-kandar', 'nasi-briyani', 'nasi-tomato', 'briyani-ayam-goreng'];
+    var KUAH = [['kurma', 'Kurma'], ['ketam', 'Crab (ketam)'], ['ikan', 'Fish head (kepala ikan)'], ['ayam', 'Chicken (ayam)']];
+    var PROTEINS = [['chicken', 'Chicken'], ['mutton', 'Mutton'], ['beef', 'Beef'], ['seafood', 'Seafood'], ['vegetarian', 'Vegetarian']];
+    var MAX = 6;
+    var bySlug = {}; DISHES.forEach(function (d) { bySlug[d.slug] = d; });
+    var state = { tray: 'nasi', q: '', heat: 5, protein: null, sig: false };
+    var plate = { rice: null, items: [], kuah: [] };
+    var $ = function (id) { return document.getElementById(id); };
+    var esc = function (t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+    // `[VERIFY: …]` in the data becomes the kit's visible verify marker
+    var rich = function (t) { return esc(t).replace(/`\[VERIFY: ([^\]]+)\]`/g, '<mark class="wf-verify">$1</mark>'); };
+    var heatMarks = function (n) { return '<span class="wf-heat" aria-label="Heat ' + n + ' of 5"><span class="on">' + '●'.repeat(n) + '</span><span class="off">' + '●'.repeat(5 - n) + '</span></span>'; };
+    var trayName = function (k) { return TRAYS.filter(function (t) { return t[0] === k; })[0][1]; };
+
+    /* Trays */
+    TRAYS.forEach(function (t) {
+      var b = document.createElement('button');
+      b.className = 'tray'; b.type = 'button'; b.setAttribute('role', 'tab'); b.dataset.tray = t[0];
+      b.innerHTML = '<b>' + esc(t[1]) + '</b><small>' + DISHES.filter(function (d) { return d.tray === t[0]; }).length + ' dishes</small>';
+      b.addEventListener('click', function () { state.tray = t[0]; state.q = ''; $('mn-q').value = ''; render(); });
+      $('mn-trays').appendChild(b);
+    });
+    /* Filters */
+    for (var h = 1; h <= 5; h++) (function (n) {
+      var b = document.createElement('button'); b.className = 'wf-chip'; b.type = 'button'; b.dataset.heat = n;
+      b.innerHTML = '●'.repeat(n); b.setAttribute('aria-label', 'Heat up to ' + n);
+      b.addEventListener('click', function () { state.heat = state.heat === n ? 5 : n; render(); });
+      $('mn-heat').appendChild(b);
+    })(h);
+    PROTEINS.forEach(function (p) {
+      var b = document.createElement('button'); b.className = 'wf-chip'; b.type = 'button'; b.dataset.protein = p[0]; b.textContent = p[1];
+      b.addEventListener('click', function () { state.protein = state.protein === p[0] ? null : p[0]; render(); });
+      $('mn-protein').appendChild(b);
+    });
+    $('mn-sig').addEventListener('click', function () { state.sig = !state.sig; render(); });
+    $('mn-clear').addEventListener('click', function () { state.heat = 5; state.protein = null; state.sig = false; state.q = ''; $('mn-q').value = ''; render(); });
+    $('mn-q').addEventListener('input', function () { state.q = this.value.trim().toLowerCase(); render(); });
+
+    function matches(d) {
+      if (state.q) { var hay = (d.en + ' ' + d.ms + ' ' + d.slug.replace(/-/g, ' ')).toLowerCase(); if (hay.indexOf(state.q) < 0) return false; }
+      else if (d.tray !== state.tray) return false;
+      if (d.heat > state.heat) return false;
+      if (state.protein && d.protein.indexOf(state.protein) < 0) return false;
+      if (state.sig && !d.sig) return false;
+      return true;
+    }
+    function row(d) {
+      var media = IMG[d.slug] ? '<figure class="wf-img" data-asset="' + IMG[d.slug] + '" data-ratio="4/3"></figure>' : '<div class="wf-ph" data-label="PHOTO TBC"></div>';
+      return '<li class="dish" id="' + d.slug + '"><button type="button" data-slug="' + d.slug + '" aria-haspopup="dialog">' +
+        '<span class="thumb">' + media + '</span>' +
+        '<span><span class="dn-en">' + esc(d.en) + '</span> <span class="dn-ms">' + esc(d.ms) + '</span><span class="dn-story" style="display:block">' + rich(d.story) + '</span></span>' +
+        '<span class="dn-side">' + (state.q ? '<span class="dn-tray">' + esc(trayName(d.tray)) + '</span>' : '') + heatMarks(d.heat) + (d.sig ? '<span class="wf-tag">★ Signature</span>' : '') + '<span class="dn-price">' + esc(d.price) + '</span></span>' +
+        '</button></li>';
+    }
+    function render() {
+      document.querySelectorAll('#mn-trays .tray').forEach(function (b) { b.setAttribute('aria-selected', String(!state.q && b.dataset.tray === state.tray)); });
+      document.querySelectorAll('#mn-heat .wf-chip').forEach(function (b) { b.setAttribute('aria-pressed', String(state.heat < 5 && Number(b.dataset.heat) === state.heat)); });
+      document.querySelectorAll('#mn-protein .wf-chip').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.protein === state.protein)); });
+      $('mn-sig').setAttribute('aria-pressed', String(state.sig));
+      var list = DISHES.filter(matches);
+      $('mn-title').textContent = state.q ? 'Search: "' + state.q + '"' : trayName(state.tray);
+      $('mn-count').textContent = list.length + (list.length === 1 ? ' dish' : ' dishes');
+      $('mn-list').innerHTML = list.map(row).join('');
+      $('mn-empty').hidden = list.length > 0;
+      $('mn-empty').textContent = state.q ? 'Nothing on the counter by that name. Try the Malay, or clear a filter.' : 'No dishes match. Loosen a filter.';
+      if (window.WF) WF.refresh($('mn-list'));
+    }
+    $('mn-list').addEventListener('click', function (e) { var b = e.target.closest('button[data-slug]'); if (b) openDish(b.dataset.slug, b); });
+
+    /* Drawer (MN-03, MN-07) */
+    var layer = $('mn-drawer-layer'), lastFocus = null, current = null;
+    function trap(container, e) {
+      var f = container.querySelectorAll('button, a[href], input'); if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+    function openDish(slug, opener) {
+      var d = bySlug[slug]; if (!d) return;
+      current = d; lastFocus = opener || document.activeElement;
+      $('dr-media').innerHTML = IMG[slug] ? '<figure class="wf-img" data-asset="' + IMG[slug] + '" data-ratio="16/10" data-caption-text="Representative photo, not Hameediyah’s own dish"></figure>' : '<div class="wf-ph" data-label="DISH PHOTO / ILLUSTRATION TBC" data-ratio="16/10"></div>';
+      $('dr-tray').textContent = trayName(d.tray) + (d.sig ? ' · ★ Signature' : '');
+      $('dr-title').textContent = d.en; $('dr-ms').textContent = d.ms;
+      $('dr-story').innerHTML = rich(d.story);
+      $('dr-spices').innerHTML = SPICES[slug] ? esc(SPICES[slug]) + ' <a href="index.html#h4">see the ritual</a>' : '<mark class="wf-verify">from the kitchen</mark>';
+      $('dr-heat').innerHTML = heatMarks(d.heat) + ' <span class="wf-small">Heat ' + d.heat + ' of 5 (editorial)</span>';
+      $('dr-pairs').innerHTML = d.pairs.map(function (p) { return bySlug[p] ? '<a href="#' + p + '" data-pair="' + p + '">' + esc(bySlug[p].en) + '</a>' : esc(p); }).join(', ');
+      $('dr-price').textContent = d.price;
+      $('dr-src').textContent = 'Source: ' + d.source + ' (see docs/FACTS.md)';
+      layer.hidden = false;
+      if (window.WF) WF.refresh(layer);
+      if (history.replaceState) history.replaceState(null, '', '#' + slug);
+      layer.querySelector('.dr-close').focus();
+    }
+    function closeDish() {
+      if (layer.hidden) return;
+      layer.hidden = true; current = null;
+      if (history.replaceState) history.replaceState(null, '', location.pathname + location.search);
+      if (lastFocus && document.body.contains(lastFocus)) lastFocus.focus();
+    }
+    layer.addEventListener('click', function (e) {
+      if (e.target.closest('[data-close]')) closeDish();
+      var p = e.target.closest('[data-pair]'); if (p) { e.preventDefault(); openDish(p.dataset.pair, lastFocus); }
+    });
+    $('dr-add').addEventListener('click', function () { if (current) { add(current.slug); closeDish(); } });
+    $('dr-copy').addEventListener('click', function () {
+      var url = location.href.split('#')[0] + '#' + (current && current.slug);
+      try { navigator.clipboard.writeText(url); this.textContent = 'Link copied'; } catch (e) { this.textContent = url; }
+    });
+
+    /* Plate builder (MN-04) */
+    var builder = $('builder');
+    KUAH.forEach(function (k) {
+      var b = document.createElement('button'); b.className = 'wf-chip'; b.type = 'button'; b.dataset.kuah = k[0]; b.textContent = k[1];
+      b.setAttribute('aria-pressed', 'false');
+      b.addEventListener('click', function () { var i = plate.kuah.indexOf(k[1]); if (i < 0) plate.kuah.push(k[1]); else plate.kuah.splice(i, 1); renderPlate(); });
+      $('pb-kuah').appendChild(b);
+    });
+    function add(slug) {
+      if (RICE.indexOf(slug) >= 0) { plate.rice = slug; }
+      else if (plate.items.length >= MAX) { $('pb-msg').textContent = "That's a full plate: 6 items. Remove one to add another."; return; }
+      else plate.items.push(slug);
+      renderPlate();
+      $('pb-msg').textContent = plate.items.length >= 5 ? 'Heavy plate! The pole is tipping.' : bySlug[slug].en + ' added.';
+    }
+    function count() { return (plate.rice ? 1 : 0) + plate.items.length; }
+    function renderPlate() {
+      var n = count();
+      $('pb-badge').textContent = n;
+      $('pb-beam').style.setProperty('--tilt', Math.min(plate.items.length, MAX) * 3 + 'deg');
+      var rows = [];
+      if (plate.rice) rows.push('<li><span><span class="slot">Rice</span>' + esc(bySlug[plate.rice].en) + '</span><button type="button" data-rm="rice" aria-label="Remove ' + esc(bySlug[plate.rice].en) + '">✕</button></li>');
+      plate.items.forEach(function (s, i) { rows.push('<li><span><span class="slot">Piece</span>' + esc(bySlug[s].en) + '</span><button type="button" data-rm="' + i + '" aria-label="Remove ' + esc(bySlug[s].en) + '">✕</button></li>'); });
+      $('pb-list').innerHTML = rows.join('');
+      $('pb-plate').textContent = n ? (plate.rice ? bySlug[plate.rice].en : 'No rice yet') + (plate.items.length ? ' + ' + plate.items.length + ' piece' + (plate.items.length > 1 ? 's' : '') : '') + (plate.kuah.length ? ' + kuah' : '') : 'ILLUSTRATED PLATE: items assemble here';
+      document.querySelectorAll('#pb-kuah .wf-chip').forEach(function (b) { b.setAttribute('aria-pressed', String(plate.kuah.indexOf(KUAH.filter(function (k) { return k[0] === b.dataset.kuah; })[0][1]) >= 0)); });
+      $('pb-show').disabled = n === 0;
+      if (n === 0) $('pb-msg').textContent = 'Your plate is empty. Start with rice.';
+    }
+    $('pb-list').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-rm]'); if (!b) return;
+      if (b.dataset.rm === 'rice') plate.rice = null; else plate.items.splice(Number(b.dataset.rm), 1);
+      renderPlate(); if (count()) $('pb-msg').textContent = 'Removed.';
+    });
+    $('pb-bar').addEventListener('click', function () { var open = !builder.classList.contains('is-open'); builder.classList.toggle('is-open', open); this.setAttribute('aria-expanded', String(open)); });
+
+    /* Show at counter (MN-05) */
+    var cv = $('counter-view'), cvOpener = null;
+    function openCounter() {
+      var items = [];
+      if (plate.rice) items.push(bySlug[plate.rice]);
+      plate.items.forEach(function (s) { items.push(bySlug[s]); });
+      $('cv-list').innerHTML = items.map(function (d) { return '<li>' + esc(d.en) + '<small>' + esc(d.ms) + '</small></li>'; }).join('') +
+        (plate.kuah.length ? '<li>Kuah: ' + esc(plate.kuah.join(' + ')) + '<small>Kuah campur</small></li>' : '');
+      cvOpener = document.activeElement; cv.hidden = false; cv.querySelector('.cv-close').focus();
+    }
+    function closeCounter() { if (cv.hidden) return; cv.hidden = true; if (cvOpener) cvOpener.focus(); }
+    $('pb-show').addEventListener('click', openCounter);
+    cv.addEventListener('click', function (e) { if (e.target.closest('[data-close]')) closeCounter(); });
+
+    document.addEventListener('keydown', function (e) {
+      if (!cv.hidden) { if (e.key === 'Escape') closeCounter(); else if (e.key === 'Tab') trap(cv, e); return; }
+      if (!layer.hidden) { if (e.key === 'Escape') closeDish(); else if (e.key === 'Tab') trap(layer, e); }
+    });
+
+    /* Deep links: #slug opens that dish in its tray; #builder opens the sheet; #counter-view opens the summary */
+    function route() {
+      var h = decodeURIComponent(location.hash.slice(1));
+      if (bySlug[h]) {
+        state.tray = bySlug[h].tray; state.q = ''; render();
+        var li = document.getElementById(h); if (li) { li.classList.add('is-target'); li.scrollIntoView({ block: 'center' }); }
+        openDish(h, li && li.querySelector('button'));
+      } else if (h === 'builder') { builder.classList.add('is-open'); $('pb-bar').setAttribute('aria-expanded', 'true'); }
+      else if (h === 'counter-view') { openCounter(); }
+    }
+    window.addEventListener('hashchange', route);
+    render(); renderPlate();
+    document.addEventListener('DOMContentLoaded', function () { if (window.WF) WF.refresh(document.getElementById('menu')); route(); });
+  })();
+  </script>
+</section>
+<!-- region:MENU end -->
+
+<!-- shell: page links (HAM-01) -->
+<nav class="wf-pagelinks" aria-label="Wireframe pages">
+  <span>Wireframe pages:</span>
+  <a href="index.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="flow.html">Flow</a>
+  <a href="credits.html">Credits</a>
+</nav>
+</main>
+</body>
+</html>

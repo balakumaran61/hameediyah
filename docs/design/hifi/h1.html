@@ -1,0 +1,40 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hameediyah · H1 hero (hi-fi)</title>
+<link rel="stylesheet" href="../tokens.css"><link rel="stylesheet" href="hifi.css"><style>
+body{--bg:var(--heat-1);--ink:var(--heat-1-ink)}
+.hero{display:grid;gap:var(--space-32);padding:var(--space-24) 0 var(--space-48);align-items:center}
+@media(min-width:900px){.hero{grid-template-columns:1.25fr 1fr;min-height:calc(100vh - 80px);padding:var(--space-16) 0}}
+.hero h1{font-size:var(--step-3xl);color:var(--cinnamon);margin:var(--space-16) 0}
+.hero h1 em{font-style:normal;color:var(--saffron);text-shadow:none;-webkit-text-stroke:0}
+.lede{font-size:var(--step-lg);max-width:34ch;margin:0 0 var(--space-16);font-weight:600}
+.body{max-width:52ch;margin:0 0 var(--space-24)}
+.ctas{display:flex;flex-wrap:wrap;gap:var(--space-12)}
+.proof{margin-top:var(--space-24);display:flex;gap:var(--space-12);align-items:center;font:var(--step-xs) var(--font-utility)}
+.proof::before{content:"";width:28px;height:28px;border-radius:50%;background:var(--brass-foil);flex:none}
+.stage{position:relative;padding:var(--space-48) 0 var(--space-48)}
+.stage .photo{aspect-ratio:4/5;transform:rotate(1.5deg);max-width:420px;margin-left:auto;filter:sepia(.55) saturate(.9) contrast(1.05)}
+.stage .photo img{border:8px solid var(--ivory);border-radius:var(--radius-sm)}
+.pole{position:absolute;z-index:2;left:-8%;right:-4%;top:-2%;height:150px;pointer-events:none;transform:rotate(-3deg)}
+.pole svg{width:100%;height:100%;overflow:visible}
+.steam{position:absolute;top:-10px;width:40px;height:70px;opacity:.55}
+.hint{font:var(--step-xs) var(--font-utility);opacity:.8;margin-top:var(--space-16)}
+.stamp{position:absolute;right:0;bottom:0;width:104px;height:104px;border-radius:50%;background:var(--turmeric);color:var(--ember);display:grid;place-items:center;text-align:center;font:700 var(--step-xs)/1.2 var(--font-utility);letter-spacing:.08em;transform:rotate(-8deg);box-shadow:var(--shadow-lift)}
+.stamp b{display:block;font:700 var(--step-xl) var(--font-display)}
+main.wrap{overflow-x:clip}</style></head><body>
+<header class="nav"><b>Hameediyah</b><nav><a href="#">The Voyage</a><a href="#">The Ritual</a><a href="#">Signatures</a><a href="#">Visit</a><a class="btn" style="min-height:40px" href="#">Menu</a></nav><button class="menu-btn">Menu</button><div class="progress" style="--p:6%"><i></i></div></header>
+<main class="wrap"><section class="hero">
+<div><div class="util">Since 1907 · Lebuh Campbell, Penang</div>
+<h1>Seven generations. <em>One pole</em> that never rested.</h1>
+<p class="lede">Malaysia's oldest nasi kandar, Lebuh Campbell, Penang.</p>
+<p class="body">In 1907 a spice trader's family carried rice and curry across a field on Campbell Street, two baskets balanced on one pole. That pole gave nasi kandar its name. The family has kept the pots full ever since.</p>
+<div class="ctas"><a class="btn" href="#">Begin the journey</a><a class="btn ghost" href="#">See the menu</a></div>
+<div class="proof">Malaysia's oldest nasi kandar restaurant · Malaysia Book of Records, 2020</div>
+<p class="hint">Move your cursor. The pole keeps its balance.</p></div>
+<div class="stage">
+<div class="pole" aria-hidden="true"><svg viewBox="0 0 600 150" preserveAspectRatio="none"><defs><linearGradient id="f" x1="0" x2="1"><stop offset="0" stop-color="var(--brass)"/><stop offset=".3" stop-color="var(--turmeric)"/><stop offset=".55" stop-color="var(--brass)"/><stop offset="1" stop-color="var(--cinnamon)"/></linearGradient></defs>
+<rect x="0" y="22" width="600" height="9" rx="4.5" fill="url(#f)"/>
+<line x1="40" y1="31" x2="40" y2="92" stroke="var(--brass)" stroke-width="3"/><line x1="560" y1="31" x2="560" y2="92" stroke="var(--brass)" stroke-width="3"/>
+<path d="M12 92h56a28 28 0 0 1-56 0z" fill="var(--cinnamon)"/><path d="M532 92h56a28 28 0 0 1-56 0z" fill="var(--cinnamon)"/>
+<path d="M30 84c-6-12 6-16 0-28M52 84c-6-12 6-16 0-28M552 84c-6-12 6-16 0-28M574 84c-6-12 6-16 0-28" stroke="var(--brass)" stroke-width="2.5" fill="none" opacity=".55" stroke-linecap="round"/></svg></div>
+<figure class="photo"><img src="../../../wireframes/assets/img/IMG-01.jpg" alt="Hameediyah's yellow-and-green shophouse front on Lebuh Campbell, with diners at the door and a motorbike outside."></figure>
+<div class="stamp"><div><b>1907</b>Lebuh<br>Campbell</div></div></div>
+</section></main></body></html>

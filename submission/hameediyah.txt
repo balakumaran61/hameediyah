@@ -1,0 +1,11 @@
+Hameediyah Restaurant
+Live URL:   <TO FILL AFTER DEPLOY>
+GitHub:     <TO FILL AFTER PUSH>
+Rationale:
+Hameediyah is Penang's oldest nasi kandar restaurant, open since 1907 and now in its seventh generation. Our concept, "The Pole That Never Rested", turns the site into one continuous journey that the visitor carries forward the way the founder carried two pots of curry on a shoulder pole (kandar). A brass pole is the progress bar, divider and menu balance. The page "roasts" as you scroll, moving from ivory to smoked ember.
+
+The palette comes from the spice rack: turmeric, saffron, roasted cinnamon, brass and ember, all tested for AA contrast. Fraunces gives hand-set warmth that thickens as headlines arrive; a bookish serif carries the story; a ledger-style grotesque handles dates and labels.
+
+Five interactions each teach one real thing: a scroll-drawn voyage, a Then/Now archive slider, a spice-roasting ritual, a gravy-flood (banjir) ritual, and the Kandar Counter menu, with steel trays, heat filters, a plate builder and a show-at-counter screen instead of a cart. Every interaction has a keyboard path and a reduced-motion fallback.
+
+For the client it means: the Book of Records title on display, easier discovery for visitors, more confident first orders, shareable dish links, ready press material, and room for reservations and the 120-year anniversary.

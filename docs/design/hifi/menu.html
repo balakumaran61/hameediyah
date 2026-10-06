@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hameediyah · Menu drawer and plate (hi-fi)</title>
+<link rel="stylesheet" href="../tokens.css"><link rel="stylesheet" href="hifi.css"><style>
+body{--bg:var(--heat-2);--ink:var(--heat-2-ink)}
+h1{font-size:var(--step-2xl);color:var(--cinnamon);margin:var(--space-24) 0 var(--space-8)}
+.intro{max-width:52ch}
+.trays{display:flex;gap:var(--space-8);overflow-x:auto;padding:var(--space-16) 0;scrollbar-width:none}
+.tray{flex:none;min-height:56px;padding:0 var(--space-24);border-radius:var(--radius-md) var(--radius-md) var(--radius-sm) var(--radius-sm);border:0;font:600 var(--step-sm) var(--font-utility);color:var(--ember);background:linear-gradient(180deg,var(--ivory),color-mix(in srgb,var(--ember) 18%,var(--ivory)));box-shadow:var(--shadow-lift)}
+.tray.on{background:var(--cinnamon);color:var(--ivory)}
+.filters{display:flex;flex-wrap:wrap;gap:var(--space-8);margin-bottom:var(--space-16)}
+.layout{display:grid;gap:var(--space-24);padding-bottom:var(--space-128)}
+@media(min-width:1000px){.layout{grid-template-columns:1.2fr 1fr .8fr;align-items:start}}
+.list{display:grid;gap:0;border-top:1.5px solid var(--cinnamon)}
+.d{display:flex;justify-content:space-between;align-items:center;gap:var(--space-12);padding:var(--space-12) 0;border-bottom:1.5px solid color-mix(in srgb,var(--cinnamon) 35%,transparent);min-height:64px}
+.d b{font:600 var(--step-lg) var(--font-display);font-variation-settings:var(--roast-end)}
+.d small{display:block;font:var(--step-xs) var(--font-utility)}
+.d.sel{background:var(--ivory);padding:var(--space-12)}
+.sig{background:var(--turmeric);color:var(--ember);font:700 .6rem var(--font-utility);padding:2px 8px;border-radius:var(--radius-pill);letter-spacing:.1em}
+.drawer{background:var(--ivory);color:var(--ember);border-radius:var(--radius-lg);box-shadow:var(--shadow-lift);overflow:hidden}
+.drawer .photo{height:210px}.drawer .photo img{border-radius:0;box-shadow:none}
+.drawer .in{padding:var(--space-24)}
+.drawer h2{font-size:var(--step-xl);color:var(--cinnamon)}
+.row{display:flex;flex-wrap:wrap;gap:var(--space-8);margin:var(--space-12) 0}
+.x{position:absolute;right:var(--space-12);top:var(--space-12);width:44px;height:44px;border-radius:50%;border:0;background:var(--ivory);font-size:1.2rem}
+.plate{background:var(--heat-5);color:var(--heat-5-ink);border-radius:var(--radius-lg);padding:var(--space-24);box-shadow:var(--shadow-lift)}
+.plate h2{color:var(--turmeric);font-size:var(--step-xl);margin-bottom:var(--space-8)}
+.pi{display:flex;justify-content:space-between;align-items:center;padding:var(--space-8) 0;border-bottom:1px solid color-mix(in srgb,var(--ivory) 25%,transparent);min-height:44px}
+.rm{min-width:44px;min-height:44px;background:none;border:0;color:var(--turmeric);font-size:1.1rem}
+.balance{margin-top:var(--space-16);position:relative;height:70px}
+.balance svg{width:100%;height:100%;transform:rotate(3.5deg);transform-origin:center}
+.cue{font:600 var(--step-xs) var(--font-utility);color:var(--turmeric);margin:var(--space-8) 0}
+.drawerwrap{position:relative}
+@media(max-width:999px){
+ .drawerwrap{position:fixed;left:0;right:0;bottom:64px;z-index:6;max-height:62vh;overflow:hidden;border-radius:var(--radius-lg) var(--radius-lg) 0 0}
+ .drawer .photo{height:120px}.drawer .in{padding:var(--space-16)}
+ .layout{padding-bottom:calc(62vh + 90px)}
+ .plate.full{display:none}
+}
+.bar{display:none}
+@media(max-width:999px){.bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:7;height:64px;align-items:center;justify-content:space-between;padding:0 var(--space-16);background:var(--heat-5);color:var(--heat-5-ink)}}
+</style></head><body>
+<header class="nav"><b>Hameediyah</b><nav><a href="#">Story</a><a href="#">Signatures</a><a href="#">Visit</a><a class="btn" style="min-height:40px" href="#">Menu</a></nav><button class="menu-btn">Menu</button><div class="progress" style="--p:70%"><i></i></div></header>
+<main class="wrap"><div class="util" style="margin-top:var(--space-24)">The Kandar Counter</div><h1>Walk the counter. Point. Pick. Pour.</h1>
+<p class="intro">Nasi kandar is ordered at the counter: rice first, then your pieces, then the kuah.</p>
+<div class="trays"><button class="tray">Nasi &amp; Rice</button><button class="tray">Curries (Kuah)</button><button class="tray on">Murtabak &amp; Roti</button><button class="tray">Fried (Goreng)</button><button class="tray">Seafood</button><button class="tray">Drinks</button></div>
+<div class="filters"><span class="chip">Heat 1–5</span><span class="chip">Chicken</span><span class="chip">Mutton</span><span class="chip on">Signature</span><span class="chip">Vegetarian</span></div>
+<div class="layout"><div class="list">
+<div class="d sel"><div><b>Murtabak</b><small>Murtabak · Heat 2 · Ask at counter</small></div><span class="sig">SIGNATURE</span></div>
+<div class="d"><div><b>Mutton kurma</b><small>Kurma Kambing · Heat 1 · Ask at counter</small></div><span class="sig">SIGNATURE</span></div>
+<div class="d"><div><b>Chicken with onion</b><small>Ayam Bawang · Heat 2 · Ask at counter</small></div><span class="sig">SIGNATURE</span></div>
+<div class="d"><div><b>Crab curry</b><small>Kari Ketam · Heat 4 · Ask at counter</small></div><span class="sig">SIGNATURE</span></div>
+<div class="d"><div><b>Naan</b><small>Roti Naan · Heat 1 · Ask at counter</small></div></div></div>
+<div class="drawerwrap"><aside class="drawer" aria-label="Murtabak details"><figure class="photo"><img src="../../../wireframes/assets/img/IMG-16.jpg" alt="Golden squares of murtabak with a lemon wedge on a white plate."></figure><button class="x" aria-label="Close">✕</button>
+<div class="in"><h2>Murtabak</h2><p style="margin:var(--space-8) 0">Folded on the hot griddle at the front door; the shop makes <span class="verify">VERIFY: about 15,000</span> a year.</p>
+<div class="util">Key spices</div><div class="row"><span class="chip">cumin</span><span class="chip">fennel</span><span class="chip">cardamom</span></div>
+<div class="util">Heat 2 of 5 · Best with kari daging, dalca</div>
+<div class="row"><a class="btn" href="#">Add to plate</a><a class="btn ghost" href="#">Copy link to this dish</a></div></div></aside></div>
+<aside class="plate full"><h2>Your plate</h2><div class="util">3 on your plate</div>
+<div class="pi">Biryani rice<button class="rm" aria-label="Remove Biryani rice">✕</button></div><div class="pi">Mutton kurma<button class="rm" aria-label="Remove Mutton kurma">✕</button></div><div class="pi">Murtabak<button class="rm" aria-label="Remove Murtabak">✕</button></div>
+<div class="balance"><svg viewBox="0 0 300 70" preserveAspectRatio="none"><rect x="0" y="14" width="300" height="7" rx="3.5" fill="var(--brass)"/><circle cx="150" cy="18" r="7" fill="var(--turmeric)"/><path d="M20 22v26M280 22v26" stroke="var(--brass)" stroke-width="2"/><path d="M0 48h40a20 20 0 0 1-40 0zM260 48h40a20 20 0 0 1-40 0z" fill="var(--cinnamon)"/></svg></div>
+<div class="cue">The pole is leaning. Room for 3 more.</div><a class="btn" style="width:100%" href="#">Show at counter</a></aside></div></main>
+<div class="bar"><span class="util">3 on your plate</span><a class="btn" style="min-height:44px" href="#">Show at counter</a></div>
+</body></html>

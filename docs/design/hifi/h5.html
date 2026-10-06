@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hameediyah · H5 Murtabak chapter (hi-fi)</title>
+<link rel="stylesheet" href="../tokens.css"><link rel="stylesheet" href="hifi.css"><style>
+body{--bg:var(--heat-3);--ink:var(--heat-3-ink)}
+.top{padding:var(--space-32) 0 var(--space-16)}
+.top h2{font-size:var(--step-xl)}
+.chap{display:grid;gap:var(--space-24);padding:var(--space-16) 0 var(--space-64);position:relative}
+@media(min-width:900px){.chap{grid-template-columns:1.1fr 1fr;align-items:center;min-height:calc(100vh - 230px)}}
+.num{position:absolute;right:0;top:-10px;font:800 clamp(10rem,22vw,20rem)/1 var(--font-display);font-variation-settings:var(--roast-end);color:var(--heat-4);opacity:.35;pointer-events:none;text-shadow:none}
+.plate{position:relative;justify-self:center;width:min(100%,520px);aspect-ratio:1;margin-bottom:var(--space-48)}
+.plate .photo{position:absolute;inset:6%;border-radius:50%;overflow:hidden;box-shadow:var(--shadow-lift)}
+.plate .photo img{border-radius:50%;box-shadow:none}
+.plate::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--ivory);box-shadow:var(--shadow-lift)}
+.plate::after{content:"";position:absolute;inset:3%;border-radius:50%;border:2px dashed var(--brass)}
+.orb{position:absolute;display:grid;place-items:center;min-width:76px;min-height:44px;padding:0 var(--space-12);border-radius:var(--radius-pill);background:var(--ember);color:var(--ivory);font:600 var(--step-xs) var(--font-utility);box-shadow:var(--shadow-lift);text-decoration:none}
+.orb:nth-of-type(1){left:-2%;top:18%}.orb:nth-of-type(2){right:-2%;top:30%}.orb:nth-of-type(3){left:12%;bottom:-2%}
+.cap{position:absolute;left:0;right:0;bottom:-34px;text-align:center;font:var(--step-xs) var(--font-utility)}
+.txt{position:relative;z-index:1}
+.txt h3{font-size:var(--step-3xl);margin:var(--space-8) 0;color:var(--ember)}
+.mal{font:italic var(--step-lg) var(--font-body)}
+.story{max-width:44ch;font-size:var(--step-lg);margin:var(--space-16) 0}
+.meta{display:flex;flex-wrap:wrap;gap:var(--space-16);align-items:center;margin:var(--space-16) 0 var(--space-24)}
+.pager{display:flex;gap:var(--space-8);align-items:center;font:600 var(--step-sm) var(--font-utility);margin-top:var(--space-24)}
+.pager i{width:28px;height:4px;border-radius:2px;background:var(--ember);opacity:.3}.pager i:first-child{opacity:1;width:48px}
+.gloss{font:var(--step-xs) var(--font-utility)}
+</style></head><body>
+<header class="nav"><b>Hameediyah</b><nav><a href="#">The Voyage</a><a href="#">The Ritual</a><a href="#">Signatures</a><a href="#">Visit</a><a class="btn" style="min-height:40px" href="#">Menu</a></nav><button class="menu-btn">Menu</button><div class="progress" style="--p:58%"><i></i></div></header>
+<main class="wrap"><div class="top"><div class="util">IV · The four signatures</div><h2>Four plates worth the queue.</h2></div>
+<section class="chap"><div class="num" aria-hidden="true">I</div>
+<div class="plate"><figure class="photo"><img src="../../../wireframes/assets/img/IMG-16.jpg" alt="Golden squares of murtabak with a lemon wedge on a white plate."></figure>
+<a class="orb" href="#">cumin</a><a class="orb" href="#">fennel</a><a class="orb" href="#">cardamom</a><div class="cap">Representative photo, not Hameediyah's own dish.</div></div>
+<div class="txt"><div class="util">Chapter I · Murtabak</div><h3>Murtabak</h3>
+<p class="story">Folded and seared on the griddle right at the front door. Hameediyah makes <span class="verify">VERIFY: about 15,000</span> a year.</p>
+<div class="meta"><span class="heat" aria-label="Heat 2 of 5"><i></i><i></i><i class="off"></i><i class="off"></i><i class="off"></i></span><span class="util">Heat 2 of 5</span><span class="util">Best with kari daging</span></div>
+<a class="btn" style="background:var(--ember);color:var(--ivory)" href="#">Find it on the menu</a>
+<div class="pager"><i></i><i></i><i></i><i></i><span>1 / 4</span></div></div></section></main></body></html>
