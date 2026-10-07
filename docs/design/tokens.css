@@ -9,6 +9,11 @@
   --chilli: #9E2B1C;
   --lime: #C9C32E;
   --leaf: #3E5B2E;
+  /* real Hameediyah signboard colours, sampled from the logo (2026 brand alignment) */
+  --sign-yellow: #F8D911;
+  --sign-green: #0A8F3F;
+  --sign-green-deep: #066B2E;
+  --sign-black: #141414;
   /* roast-heat ramp (MO-02): background step and its text colour */
   --heat-1: #FBE9C6;
   --heat-1-ink: #1D1410;

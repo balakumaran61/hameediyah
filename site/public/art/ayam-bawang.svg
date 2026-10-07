@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="200" cy="170" rx="180" ry="100" fill="#F4EADB" stroke="#B08D57" stroke-width="5"/>
-<path id="gravy" d="M70 168c8-48 80-70 135-66 70 4 118 34 122 72-8 44-82 64-140 60-70-4-124-26-117-66z" fill="#E2A012" opacity=".75"/>
-<g id="onions" stroke="#6E3B1F" stroke-width="4"><path d="M110 150c20-24 48-24 62 0"/><path d="M118 156c14-14 34-14 44 0"/><path d="M250 128c18-20 44-18 54 2"/><path d="M256 134c12-12 30-10 38 2"/><path d="M180 200c18-20 46-18 58 4"/></g>
-<g id="chicken" fill="#D9661A" stroke="#9E2B1C" stroke-width="5"><path d="M130 176c-10-26 20-44 48-36 24 8 30 32 8 46-20 12-48 10-56-10z"/><path d="M226 150c-6-24 26-38 50-26 20 12 18 34-6 44-20 8-42 0-44-18z"/></g>
-<g stroke="#1D1410" stroke-width="3" opacity=".55"><path d="M150 164c8-6 18-6 26 0M244 142c8-4 16-4 22 2"/></g>
-<g id="steam" stroke="#B08D57" stroke-width="4" opacity=".6"><path d="M160 66c-14-14 14-22 0-38M200 60c-14-14 14-22 0-38M240 66c-14-14 14-22 0-38"/></g></svg>

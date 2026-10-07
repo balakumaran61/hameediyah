@@ -1,7 +1,15 @@
 import { images, type ImageId } from '../../data/assets'
+import { realImages, type RealId } from '../../data/realAssets'
+
+export type AnyImageId = ImageId | RealId
+
+/** Looks up a Wikimedia asset (IMG-xx) or a photo supplied by the restaurant (R-xx). */
+export function imageOf(id: AnyImageId) {
+  return id.startsWith('R-') ? realImages[id as RealId] : images[id as ImageId]
+}
 
 interface Props {
-  id: ImageId
+  id: AnyImageId
   /** Override the default alt (use the COPY.md alt-text register). Pass '' for decorative. */
   alt?: string
   eager?: boolean
@@ -12,7 +20,7 @@ interface Props {
 
 /** Image by asset ID, with width/height to avoid layout shift and lazy loading by default. */
 export function Img({ id, alt, eager, className = '', caption }: Props) {
-  const a = images[id]
+  const a = imageOf(id)
   const img = (
     <img
       src={a.src}

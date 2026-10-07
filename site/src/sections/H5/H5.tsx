@@ -1,36 +1,28 @@
 import { forwardRef, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { HeatMarks } from '../../components/ui/HeatMarks'
-import { Img } from '../../components/ui/Img'
-import type { ImageId } from '../../data/assets'
+import { Img, imageOf, type AnyImageId } from '../../components/ui/Img'
 
-interface Chapter { n: string; slug: string; name: string; ms: string; layout: 'a' | 'b' | 'c' | 'd'; story: React.ReactNode; spices: string[]; heat: 1 | 2 | 3 | 4 | 5; img?: ImageId; alt?: string; best: string }
+interface Chapter { n: string; slug: string; name: string; ms: string; layout: 'a' | 'b' | 'c' | 'd'; story: React.ReactNode; spices: string[]; heat: 1 | 2 | 3 | 4 | 5; img: AnyImageId; alt?: string; best: string }
 
 const CHAPTERS: Chapter[] = [
-  { n: 'I', slug: 'murtabak', name: 'Murtabak', ms: 'Murtabak', layout: 'a', heat: 2, img: 'IMG-16', alt: 'Golden squares of murtabak with a lemon wedge on a white plate.', spices: ['cumin', 'fennel', 'cardamom'], best: 'kari daging',
+  { n: 'I', slug: 'murtabak', name: 'Murtabak', ms: 'Murtabak', layout: 'a', heat: 2, img: 'R-murtabak', spices: ['cumin', 'fennel', 'cardamom'], best: 'kari daging',
     story: <>Folded and seared on the griddle right at the front door. Watch it being made while you queue.</> },
-  { n: 'II', slug: 'ayam-bawang', name: 'Chicken with onion', ms: 'Ayam Bawang', layout: 'b', heat: 2, img: 'IMG-22', alt: 'Chicken pieces in a dark, glossy onion gravy on a steel platter.', spices: ['fennel', 'cinnamon', 'clove'], best: 'nasi kandar',
+  { n: 'II', slug: 'ayam-bawang', name: 'Chicken with onion', ms: 'Ayam Bawang', layout: 'b', heat: 2, img: 'R-ayam-bawang', spices: ['fennel', 'cinnamon', 'clove'], best: 'nasi kandar',
     story: <>Fried chicken left to soak in a slow, sweet onion gravy. The gentlest way into nasi kandar.</> },
-  { n: 'III', slug: 'mutton-kurma', name: 'Mutton kurma', ms: 'Kurma Kambing', layout: 'c', heat: 1, img: 'IMG-23', alt: 'Pale, creamy kurma over white rice in a green bowl.', spices: ['cardamom', 'cinnamon', 'star anise'], best: 'biryani rice',
+  { n: 'III', slug: 'mutton-kurma', name: 'Mutton kurma', ms: 'Kurma Kambing', layout: 'c', heat: 1, img: 'R-mutton-kurma', spices: ['cardamom', 'cinnamon', 'star anise'], best: 'biryani rice',
     story: <>Pale, thick and mild. One of the house signatures, and the gentlest curry on the counter.</> },
   { n: 'IV', slug: 'kari-ketam', name: 'Crab curry', ms: 'Kari Ketam', layout: 'd', heat: 4, img: 'IMG-17', alt: 'Crab curry in a white dish: crab pieces in a thick red-orange gravy, with a fork.', spices: ['dried chilli', 'coriander', 'fennel'], best: 'nasi kandar',
     story: <>Whole crab in a deep red kuah, best eaten with your hands.</> },
 ]
 
 function Vis({ c }: { c: Chapter }) {
-  if (!c.img) {
-    return (
-      <figure className="photo vis">
-        <img src={`${import.meta.env.BASE_URL}art/${c.slug === 'ayam-bawang' ? 'ayam-bawang' : 'mutton-kurma'}.svg`} alt={`Illustration of ${c.name}, drawn for this site`} width={400} height={300} loading="lazy" style={{ width: '100%', height: 'auto' }} />
-        <figcaption>Illustration, not a photograph. No licensed photo of this dish yet.</figcaption>
-      </figure>
-    )
-  }
   const photo = <Img id={c.img} alt={c.alt} />
+  const own = imageOf(c.img).credit === 'Hameediyah Restaurant'
   return (
-    <figure className="photo vis">
+    <figure className={`photo vis${own ? ' own' : ''}`}>
       {c.layout === 'a' ? <div className="round">{photo}</div> : photo}
-      <figcaption>Representative photo, not Hameediyah&apos;s own dish.</figcaption>
+      {own && <figcaption>From Hameediyah&apos;s kitchen</figcaption>}
     </figure>
   )
 }

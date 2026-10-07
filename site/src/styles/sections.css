@@ -275,3 +275,80 @@ blockquote.q { border-left-color: var(--lime); }
 .chap .photo figcaption { opacity: 1; }
 .facts.factcard a { color: var(--ivory); text-decoration: underline; }
 .stamp { z-index: 3; }
+
+/* ── Brand alignment (2026): the real signboard yellow, green and black as accents ── */
+.btn { background: var(--sign-yellow); color: var(--sign-black); box-shadow: inset 0 0 0 2px var(--sign-green), var(--shadow-lift); }
+.btn.dark { background: var(--sign-green-deep); color: #fff; box-shadow: var(--shadow-lift); }
+.btn.ghost { box-shadow: none; }
+:focus-visible { outline-color: var(--sign-green); }
+.hero h1 em { color: var(--sign-green-deep); }
+.stamp { background: var(--sign-yellow); color: var(--sign-black); border: 3px solid var(--sign-green); }
+.proof::before { background: var(--sign-yellow); border: 3px solid var(--sign-green); }
+.sec .util:first-child::before, .hero .util:first-child::before, .angsana .util:first-child::before, .ritual .util:first-child::before, .banjir .util:first-child::before { background: var(--sign-yellow); box-shadow: 8px 0 0 var(--sign-green); }
+#hero::before { background: radial-gradient(45% 80% at 72% 42%, color-mix(in srgb, var(--sign-yellow) 50%, transparent), transparent 72%), radial-gradient(30% 50% at 10% 90%, color-mix(in srgb, var(--sign-green) 22%, transparent), transparent 70%); }
+.sig { background: var(--sign-yellow) !important; color: var(--sign-black) !important; box-shadow: inset 0 0 0 1.5px var(--sign-green); }
+.cursor { background: var(--sign-yellow); }
+.cursor.big { background: color-mix(in srgb, var(--sign-yellow) 45%, transparent); }
+.verify { background: var(--sign-yellow); }
+
+/* photos supplied by the restaurant are shot on its signature yellow */
+.photo.own { background: var(--sign-yellow); }
+.photo.own figcaption { font: 600 var(--step-xs) var(--font-utility); letter-spacing: .08em; text-transform: uppercase; }
+
+/* the real logo */
+.logo-img { display: block; height: 40px; width: auto; }
+@media (min-width: 768px) { .logo-img { height: 46px; } }
+
+/* H4 · the chef */
+.chef { display: grid; gap: var(--space-24); align-items: center; margin-top: var(--space-64); padding: var(--space-24); border-radius: var(--radius-lg); background: color-mix(in srgb, var(--sign-yellow) 85%, var(--ivory)); color: var(--sign-black); box-shadow: inset 0 0 0 3px var(--sign-green); }
+@media (min-width: 768px) { .chef { grid-template-columns: minmax(180px, 260px) 1fr; padding: var(--space-32); } }
+.chef .photo { margin: 0; max-width: 260px; }
+.chef .photo img { width: 100%; height: auto; display: block; border-radius: var(--radius-md); }
+.chef h3 { color: var(--sign-black); font-size: var(--step-2xl); margin: var(--space-8) 0 var(--space-12); text-shadow: none; }
+.chef .q { margin: var(--space-16) 0 0; }
+
+/* H7 · ancestors and certificates */
+.ancestors { list-style: none; margin: var(--space-32) 0 var(--space-8); padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-16); }
+@media (min-width: 900px) { .ancestors { grid-template-columns: repeat(6, 1fr); } }
+.ancestors li { display: grid; gap: 2px; text-align: center; }
+.ancestors .photo { margin: 0 0 var(--space-8); border-radius: var(--radius-md); overflow: hidden; box-shadow: inset 0 0 0 3px var(--sign-yellow); }
+.ancestors .photo img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; display: block; filter: sepia(.25) contrast(1.05); }
+.ancestors small { font: 600 var(--step-xs) var(--font-utility); letter-spacing: .08em; opacity: .75; }
+.ancestors b { font: 600 var(--step-sm) / 1.25 var(--font-display); }
+.certs { display: grid; grid-template-columns: repeat(2, minmax(0, 220px)); gap: var(--space-24); margin: var(--space-32) 0 var(--space-16); }
+.certs .photo { margin: 0; }
+.certs .photo img { width: 100%; height: auto; display: block; border-radius: var(--radius-sm); box-shadow: var(--shadow-lift); }
+.certs figcaption { font: var(--step-xs) / 1.4 var(--font-utility); margin-top: var(--space-8); }
+
+/* H8 · the family album as a two-column grid */
+.arch .photos { grid-template-columns: repeat(2, 1fr); }
+.arch .photos .photo { margin: 0; }
+.arch .photos .photo img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
+.arch .photos figcaption { font: var(--step-xs) var(--font-utility); margin-top: 4px; }
+
+/* H9 · outlets and events */
+.outlets-h { font-size: var(--step-2xl); margin: var(--space-64) 0 var(--space-12); }
+.outlets { list-style: none; margin: var(--space-24) 0 0; padding: 0; display: grid; gap: var(--space-16); grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.outlets li { display: grid; align-content: start; gap: var(--space-4); padding: var(--space-12); }
+.outlets .photo { margin: 0 0 var(--space-8); border-radius: var(--radius-md); overflow: hidden; }
+.outlets .photo img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
+.outlets h4 { margin: 0; font: 700 var(--step-lg) var(--font-display); }
+.outlets p { margin: 0; font-size: var(--step-sm); }
+.outlets a { font: 600 var(--step-sm) var(--font-utility); margin-top: var(--space-8); }
+.events { display: grid; gap: var(--space-24); align-items: center; margin-top: var(--space-48); padding: var(--space-24); border-radius: var(--radius-lg); background: var(--sign-green-deep); color: #fff; }
+@media (min-width: 900px) { .events { grid-template-columns: 1.3fr 1fr; padding: var(--space-32); } }
+.events h3 { color: var(--sign-yellow); font-size: var(--step-2xl); margin: var(--space-8) 0 var(--space-12); text-shadow: none; }
+.events .btn.ghost { color: #fff; }
+.events .photo { margin: 0; border-radius: var(--radius-md); overflow: hidden; }
+.events .photo img { width: 100%; height: auto; display: block; }
+.events figcaption { padding: var(--space-8) var(--space-12); color: var(--sign-black); }
+
+/* let grid columns shrink on narrow screens (the ritual's tray was forcing a 407px column at 375px) */
+.ritual > *, .banjir > *, .angsana > *, .visit > *, .arch > * { min-width: 0; }
+@media (max-width: 899px) { .ritual { grid-template-columns: minmax(0, 1fr); } }
+.spices { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 420px) { .spices { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.sp { min-width: 0; overflow-wrap: anywhere; }
+
+/* the cursor hint only makes sense with a mouse */
+@media (hover: none), (pointer: coarse) { .hero .hint { display: none; } }

@@ -1,5 +1,18 @@
 import { forwardRef } from 'react'
 import { Img } from '../../components/ui/Img'
+import type { RealId } from '../../data/realAssets'
+
+const map = (q: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`
+
+// Outlets and addresses from the Hameediyah company profile (2025)
+const OUTLETS: { name: string; area: string; addr: string; img: RealId; note?: string }[] = [
+  { name: 'Campbell Street', area: 'George Town, Penang · the original', addr: '164-A Lebuh Campbell, 10100 George Town, Pulau Pinang', img: 'R-outlet-campbell' },
+  { name: 'Prai', area: 'Seberang Perai, Penang', addr: '2730 Jalan Baru, Taman Pauh Jaya, 13600 Perai, Pulau Pinang', img: 'R-outlet-prai' },
+  { name: 'Sungai Ara', area: 'Bayan Lepas, Penang', addr: '300-X-1 Jalan Dato Ismail Hashim, Desa Ria, 11900 Bayan Lepas, Pulau Pinang', img: 'R-outlet-sungai-ara' },
+  { name: 'Ampang', area: 'Ampang Jaya, Selangor', addr: 'Lot 36904, PT 27423, Jalan Kolam Ayer Lama, Taman Dato Ahmad Razali, 68000 Ampang Jaya, Selangor', img: 'R-outlet-ampang' },
+  { name: 'Bukit Bintang', area: 'Kuala Lumpur · HQ', addr: '138 Jalan Bukit Bintang, 55100 Kuala Lumpur', img: 'R-outlet-bukit-bintang', note: 'Classic nasi kandar, plus Hameediyah Fine Dining upstairs.' },
+  { name: 'Masjid India', area: 'Kuala Lumpur', addr: 'GF-01 Semua House, City Centre, 50100 Kuala Lumpur', img: 'R-outlet-masjid-india' },
+]
 
 const MAPS = 'https://www.google.com/maps/search/?api=1&query=Hameediyah+Restaurant+164A+Lebuh+Campbell+George+Town+Penang'
 
@@ -34,9 +47,40 @@ export const H9 = forwardRef<HTMLElement>(function H9(_, ref) {
           </div>
         </div>
         <div style={{ display: 'grid', gap: 'var(--space-16)' }}>
+          <figure className="photo own"><Img id="R-outlet-campbell" /></figure>
           <figure className="photo"><Img id="IMG-04" alt="A lunchtime queue stretches along the shophouses outside Hameediyah." /></figure>
-          <figure className="photo"><Img id="IMG-05" alt="Pastel shophouses and street lamps along Lebuh Campbell under a blue sky, May 2026." /><figcaption>Lebuh Campbell, May 2026. Photo: CC BY-SA 4.0</figcaption></figure>
+          </div>
+      </div>
+
+      <h3 className="outlets-h" id="outlets">Six outlets, one recipe book.</h3>
+      <p className="lede">Campbell Street is where it began, but the same pots are now on the fire in Penang, Selangor and Kuala Lumpur.</p>
+      <ul className="outlets">
+        {OUTLETS.map((o) => (
+          <li key={o.name} className="panel">
+            <figure className="photo"><Img id={o.img} /></figure>
+            <div className="util">{o.area}</div>
+            <h4>{o.name}</h4>
+            <p>{o.addr}</p>
+            {o.note && <p className="gloss">{o.note}</p>}
+            <a href={map(`Hameediyah ${o.addr}`)} target="_blank" rel="noreferrer">Directions →</a>
+          </li>
+        ))}
+      </ul>
+
+      <div className="events" id="events">
+        <div>
+          <div className="util">Events &amp; catering</div>
+          <h3>Bring the counter to your table.</h3>
+          <p>Business lunches, weddings, birthdays, launches and private dining, from the family that has catered royal lunches and state hi-teas. Tell the team the date and the headcount.</p>
+          <div style={{ display: 'flex', gap: 'var(--space-12)', flexWrap: 'wrap' }}>
+            <a className="btn" href="tel:+6042611095">Call 04-261 1095</a>
+            <a className="btn ghost" href="mailto:hameediyah1907@gmail.com?subject=Event%20enquiry">Email the team</a>
+          </div>
         </div>
+        <figure className="photo own">
+          <Img id="R-rendang-pouch" />
+          <figcaption>Take it home: Hameediyah&apos;s beef rendang, sealed in a pouch.</figcaption>
+        </figure>
       </div>
     </section>
   )

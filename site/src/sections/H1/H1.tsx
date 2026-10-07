@@ -27,10 +27,10 @@ export const H1 = forwardRef<HTMLElement>(function H1(_, ref) {
           <div className="util">Since 1907 · Lebuh Campbell, Penang</div>
           <h1>Seven generations. <em>One pole</em> that never rested.</h1>
           <p className="sub">Malaysia&apos;s oldest nasi kandar, Lebuh Campbell, Penang.</p>
-          <p className="lede">In 1907 a spice trader&apos;s family carried rice and curry across a field on Campbell Street, two baskets balanced on one pole. That pole gave <i>nasi kandar</i> its name. The family has kept the pots full ever since.</p>
+          <p className="lede">In 1907 a family from Kerala began carrying rice and curry through the streets of George Town, two baskets balanced on one pole. That pole gave <i>nasi kandar</i> its name. The family has kept the pots full ever since.</p>
           <div className="ctas">
-            <a className="btn" href="#story" onClick={(e) => { e.preventDefault(); scrollToTarget('#story') }}>Begin the journey</a>
-            <ButtonLink to="/menu" variant="ghost">See the menu</ButtonLink>
+            <ButtonLink to="/menu">See the menu</ButtonLink>
+            <a className="btn ghost" href="#story" onClick={(e) => { e.preventDefault(); scrollToTarget('#story') }}>Our story</a>
           </div>
           <div className="proof">Malaysia&apos;s oldest nasi kandar restaurant · Malaysia Book of Records, 2020</div>
           <p className="hint">Move your cursor. The pole keeps its balance.</p>

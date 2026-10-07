@@ -38,14 +38,25 @@ export function startSmoothScroll(): () => void {
   }
 }
 
-/** Scrolls to an element or y offset, using Lenis when on and a jump when reduced. */
+/** Height of the sticky header, so targets land below it rather than under it. */
+const headerOffset = () => (document.querySelector('.site-nav')?.getBoundingClientRect().height ?? 72) + 12
+
+/**
+ * Scrolls to an element or y offset, below the sticky header. Uses Lenis when on and a jump when reduced.
+ * Lazy images can load during the scroll and move the target, so it re-measures once it lands.
+ */
 export function scrollToTarget(target: string | HTMLElement | number) {
-  if (lenis) lenis.scrollTo(target, { duration: 1.2 })
-  else if (typeof target === 'number') window.scrollTo(0, target)
-  else {
-    const el = typeof target === 'string' ? document.querySelector<HTMLElement>(target) : target
-    el?.scrollIntoView()
+  if (typeof target === 'number') {
+    if (lenis) lenis.scrollTo(target, { duration: 1.2 })
+    else window.scrollTo(0, target)
+    return
   }
+  const el = typeof target === 'string' ? document.querySelector<HTMLElement>(target) : target
+  if (!el) return
+  const y = () => el.getBoundingClientRect().top + window.scrollY - headerOffset()
+  const settle = () => { if (Math.abs(el.getBoundingClientRect().top - headerOffset()) > 4) { if (lenis) lenis.scrollTo(y(), { immediate: true }); else window.scrollTo(0, y()) } }
+  if (lenis) lenis.scrollTo(y(), { duration: 1.2, onComplete: () => requestAnimationFrame(settle) })
+  else { window.scrollTo(0, y()); setTimeout(settle, 150) }
 }
 
 /**

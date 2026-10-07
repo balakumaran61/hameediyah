@@ -48,10 +48,10 @@ export const H6 = forwardRef<HTMLElement>(function H6(_, ref) {
         </div>
         <div className="plate-wrap">
           <div className="round" style={{ ['--flood' as string]: flood }}>
-            <Img id="IMG-13" alt="A nasi kandar plate: rice soaked in dark curry gravy with fried chicken and vegetables." />
+            <Img id="R-ayam-bawang" alt="Hameediyah's nasi kandar with ayam bawang: fried chicken under red onion sambal, with okra and curry leaves, over rice." />
             <div className="flood" aria-hidden="true" style={reduced ? { transition: 'none' } : undefined} />
           </div>
-          <p className="gloss" style={{ textAlign: 'center', marginTop: 'var(--space-8)' }}>Representative photo, not Hameediyah&apos;s own dish.</p>
+          <p className="gloss" style={{ textAlign: 'center', marginTop: 'var(--space-8)' }}>Nasi kandar ayam bawang, from Hameediyah&apos;s kitchen.</p>
         </div>
       </div>
     </section>

@@ -1,3 +1,4 @@
+import { Img } from '../../components/ui/Img'
 import { forwardRef, useCallback, useEffect, useRef, useState } from 'react'
 import { ButtonLink } from '../../components/ui/Button'
 import { useReducedMotion } from '../../lib/motion'
@@ -125,6 +126,15 @@ export const H4 = forwardRef<HTMLElement>(function H4(_, ref) {
           </div>
         )}
       </div>
+      <aside className="chef" aria-label="The chef">
+        <figure className="photo own"><Img id="R-chef" /></figure>
+        <div>
+          <div className="util">The keeper of the masala</div>
+          <h3>Chef A.S.S. Haji Ithrees</h3>
+          <p>For more than 25 years Chef Haji Ithrees has cooked from the family&apos;s secret recipes, balancing the original spices and training every new cook to do the same.</p>
+          <blockquote className="q">&ldquo;We add in original spices to our food and we kept it as a secret recipe since our forefathers&apos; golden era.&rdquo;<cite>Hameediyah company profile</cite></blockquote>
+        </div>
+      </aside>
     </section>
   )
 })

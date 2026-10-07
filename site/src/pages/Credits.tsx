@@ -1,4 +1,5 @@
 import { images, videos, type ImageAsset } from '../data/assets'
+import { realImages } from '../data/realAssets'
 
 const PLACE = ['IMG-01', 'IMG-02', 'IMG-03', 'IMG-04', 'IMG-05']
 const GROUPS = [
@@ -17,8 +18,18 @@ export function Credits() {
   return (
     <main id="main" className="wrap" style={{ padding: 'var(--space-64) var(--space-16) var(--space-128)' }}>
       <h1 style={{ fontSize: 'var(--step-3xl)' }}>Credits</h1>
-      <p><em>Food photography is representative and not of Hameediyah&apos;s own dishes.</em></p>
-      <p className="gloss">All images are freely licensed from Wikimedia Commons. Licences link to their deeds. A concept site made for a design challenge; not affiliated with Hameediyah Restaurant.</p>
+      <p className="gloss">Signature dishes, family portraits, archive, outlet and certificate photographs are courtesy of Hameediyah Restaurant, from its company profiles. All other images are freely licensed from Wikimedia Commons; licences link to their deeds. A concept site made for a design challenge.</p>
+      <section aria-label="Courtesy of Hameediyah Restaurant">
+        <h2 style={{ fontSize: 'var(--step-xl)', margin: 'var(--space-32) 0 var(--space-12)' }}>Courtesy of Hameediyah Restaurant</h2>
+        <ul style={{ listStyle: 'none', padding: 0, display: 'grid', gap: 'var(--space-12)' }}>
+          {Object.values(realImages).map((i) => (
+            <li key={i.id} style={{ display: 'flex', gap: 'var(--space-16)', alignItems: 'center' }}>
+              <img src={i.src} alt="" width={96} height={72} loading="lazy" style={{ objectFit: 'cover', width: 96, height: 72, borderRadius: 4, flex: 'none' }} />
+              <div>{i.alt}<br /><span className="gloss">{i.credit} · {i.license} · used in {i.usedIn}</span></div>
+            </li>
+          ))}
+        </ul>
+      </section>
       {GROUPS.map((g) => (
         <section key={g.title} aria-label={g.title}>
           <h2 style={{ fontSize: 'var(--step-xl)', margin: 'var(--space-32) 0 var(--space-12)' }}>{g.title}</h2>
